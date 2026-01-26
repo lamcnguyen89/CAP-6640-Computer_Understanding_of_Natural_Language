@@ -22,15 +22,34 @@ Each question is worth 5 pts
 **Question 1: Why Natural Language Is Hard (Lecture 2)**
 (A) Explain why ambiguity is a fundamental challenge in natural language understanding. Your answer must address how ambiguity arises from structure, context, and interpretation.
 
+Ambiguity as a fundamental challenge in NLP can be explained through these 3 concepts: Structure, Context and Interpretation. 
+
+- Structure: Is the grammatical organization of language. Ambiguity can arise for example in a sentence where there are multiple subjects and objects, and it is not so clear cut which is which. Or you might have a grammatical structure in formal written prose, but those rules will change in informal texts such as text messaging, or say twitter texts.
+
+- Context: A word can have different meanings depending on the surrounding words. For example the word "Camping" can mean going out and living in outdoor environments, or it can mean staying in a spot and not moving inside a video game
+
+- Interpretation: An example would be how a phrase can be neutral or aggressive depending on many subjective factors.
+
 (B) Explain why increasing sentence length and structural complexity exacerbates ambiguity, and why this makes deterministic language processing insufficient.
+
+Ambiguity is increased with length and complexity because that is more data and relationships that the computer has to parse and understand. The more data that has to be dealt with the more computing power is required. And currently, we do not have enough data or computing power to make nlp deterministic.
 
 **Question 2: NLP Task Structure (Lecture 2)**
 (A) Define syntactic, semantic, and pragmatic NLP tasks, and explain the type of information each operates on.
 
+- Syntactic Tasks: Understands language structure such as grammar. It operates on characters and individual symbols.
+
+- Semantic Tasks: Aims to capture the meaning of words. It operates on the units of words, sentences, and entire texts
+
+- Pragmatic Tasks: Interprets language in contexts. The units of understanding pragmatic tasks are situational factors, tone and implied meanings
+
 (B) Explain why higher-level NLP tasks depend on lower-level ones, and why errors at lower levels propagate upward.
+
+The lowest level tasks are syntactic tasks. They are the foundation of the higher level tasks such as pragmatic tasks and you have to get the foundations first. For example, how are you able to understand the meaning behind a text if you are unable to read the words (syntax).
 
 **Question 3: One-Hot Encoding and Geometry (Lecture 3)**
 (A) Formally describe one-hot encoding for a vocabulary of size |V|, including its dimensionality and geometric interpretation.
+
 
 (B) Using vector orthogonality and dot products, explain why one-hot representations cannot encode semantic similarity.
 
