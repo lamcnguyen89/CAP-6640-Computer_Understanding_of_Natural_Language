@@ -1,6 +1,6 @@
 
 
-# Assignment: Distributional Meaning and Word Embeddings
+# Assignment 1: Distributional Meaning and Word Embeddings
 This assignment examines how meaning is represented, learned, optimized, and evaluated in Natural Language Processing. All questions are based strictly on the material covered in Lectures 2, 3, and 4. Each question consists of two parts and requires precise, technically grounded answers.
 
 This is an individual assignment. Clarity, correctness, and depth of reasoning are expected.
