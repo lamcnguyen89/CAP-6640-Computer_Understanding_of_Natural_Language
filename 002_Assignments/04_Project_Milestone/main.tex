@@ -58,21 +58,21 @@
 %% the commands and values with those provided to you when you
 %% complete the rights form.
 \setcopyright{acmlicensed}
-\copyrightyear{2024}
-\acmYear{2024}
-\acmDOI{XXXXXXX.XXXXXXX}
+\copyrightyear{2026}
+\acmYear{2026}
+%%\acmDOI{XXXXXXX.XXXXXXX}
 
 %% These commands are for a PROCEEDINGS abstract or paper.
-\acmConference[Conference acronym 'XX]{Make sure to enter the correct
-  conference title from your rights confirmation email}{June 03--05,
-  2018}{Woodstock, NY}
+%%\acmConference[Conference acronym 'XX]{Make sure to enter the correct
+ %% conference title from your rights confirmation email}{June 03--05,
+ %% 2018}{Woodstock, NY}
 %
 %  Uncomment \acmBooktitle if th title of the proceedings is different
 %  from ``Proceedings of ...''!
 %
 %\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
 %  June 03--05, 2018, Woodstock, NY} 
-\acmISBN{978-1-4503-XXXX-X/18/06}
+%%\acmISBN{978-1-4503-XXXX-X/18/06}
 
 
 %%
@@ -152,7 +152,7 @@
 %% article.
 \begin{abstract}
 
-A milestone update will be given on how Large Language Models can be used to identify problems in system and network logs. The practical application that will be used is a web application designed using the MongoDB, Express, React, and Node (MERN) stack. The framework that will be used to scan the network logs is called LangChain combined with Claude. The topic number in this syllabus is: 14. LLM-Based Anomaly Detection in System Logs. 
+A milestone update will be given on how Large Language Models can be used to identify problems in system and network logs. The practical application that will be used is a web application designed using the MongoDB, Express, React, and Node (MERN) stack. The framework that will be used to scan the network logs is called LangChain combined with Claude. The topic number in this syllabus is: 14. LLM-Based Anomaly Detection in System Logs. So far the application has been built with Backend Logging using the Javascript logging Library Winston which so far is able to log backend API requests and responses. LangChain framework has been implemented to some extent and is able to scan logs. However more fine-tuning needs to be done as it is not consistent and there are still bugs and issues with thee Claude API.
 
 \end{abstract}
 
@@ -163,47 +163,49 @@ A milestone update will be given on how Large Language Models can be used to ide
 \begin{CCSXML}
 <ccs2012>
  <concept>
-  <concept_id>00000000.0000000.0000000</concept_id>
-  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_id>10010147.10010178.10010179</concept_id>
+  <concept_desc>Computing methodologies~Natural language processing</concept_desc>
   <concept_significance>500</concept_significance>
  </concept>
  <concept>
-  <concept_id>00000000.00000000.00000000</concept_id>
-  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_id>10002978.10003029.10003032</concept_id>
+  <concept_desc>Security and privacy~Intrusion/anomaly detection and malware mitigation</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10010147.10010257.10010293.10010294</concept_id>
+  <concept_desc>Computing methodologies~Neural networks</concept_desc>
   <concept_significance>300</concept_significance>
  </concept>
  <concept>
-  <concept_id>00000000.00000000.00000000</concept_id>
-  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
-  <concept_significance>100</concept_significance>
- </concept>
- <concept>
-  <concept_id>00000000.00000000.00000000</concept_id>
-  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_id>10011007.10011074.10011111.10011113</concept_id>
+  <concept_desc>Software and its engineering~System administration</concept_desc>
   <concept_significance>100</concept_significance>
  </concept>
 </ccs2012>
 \end{CCSXML}
 
-\ccsdesc[500]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-\ccsdesc[300]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-\ccsdesc{Do Not Use This Code~Generate the Correct Terms for Your Paper}
-\ccsdesc[100]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+\ccsdesc[500]{Computing methodologies~Natural language processing}
+\ccsdesc[500]{Security and privacy~Intrusion/anomaly detection and malware mitigation}
+\ccsdesc[300]{Computing methodologies~Neural networks}
+\ccsdesc[100]{Software and its engineering~System administration}
 
 %%
 %% Keywords. The author(s) should pick words that accurately describe
 %% the work being presented. Separate the keywords with commas.
-\keywords{Do, Not, Us, This, Code, Put, the, Correct, Terms, for,
-  Your, Paper}
+\keywords{large language models, anomaly detection, log analysis, system monitoring, LangChain, natural language processing, security analysis, network logs}
 
-%% The following are not a requirement, delete if not using
-%%\received{20 February 2024}  %% inital submission date
-%%\received[revised]{12 March 2024} %% interim new draft
-%%\received[accepted]{5 June 2024}  %% publication version
+%%Guidelines for choosing keywords:
 
-%%
-%% This command processes the author and affiliation and title
-%% information and builds the first part of the formatted document.
+%%ACM Digital Library Guide: https://authors.acm.org/proceedings/production-information/preparing-your-article-with-latex
+%%General best practices: Choose 5-10 specific terms that researchers would use when searching for your work. Include both broad terms (e.g., "anomaly detection") and specific ones (e.g., "LangChain")
+%%Tips for your paper:
+
+%%Use terms from your abstract and title
+%%Include the specific technologies/frameworks you're using (LangChain, Claude)
+%%Add domain-specific terms (log analysis, system monitoring)
+%%Consider what someone would search for to find work like yours
+%%Look at keywords in similar papers in your field
 \maketitle
 
 \section{Introduction and Problem Statement}
@@ -211,11 +213,15 @@ A milestone update will be given on how Large Language Models can be used to ide
 
 \subsection{Motivation} 
 
-The motivation for this project is to explore how LLMs can be used to identify problems in system and network logs, which can be a valuable tool for system administrators and security professionals. The significance of this project is that it can help to improve the efficiency and effectiveness of log analysis, which can lead to faster identification of issues and improved security. The objectives of this project are to develop a web application that can scan network logs using LangChain and Claude, and to evaluate the performance of the application in identifying anomalies in the logs.
+The motivation for this project is to explore how LLMs can be used to identify problems in system and network logs, which can be a valuable tool for system administrators and security professionals. 
 
 \subsection{Significance}
 
+The significance of this project is that it can help to improve the efficiency and effectiveness of log analysis, which can lead to faster identification of issues and improved security. 
+
 \subsection{Objectives}
+
+The objectives of this project are to develop a web application that can scan network logs using LangChain and Claude, and to evaluate the performance of the application in identifying anomalies in the logs.
 
 
 \section{Related Work}
