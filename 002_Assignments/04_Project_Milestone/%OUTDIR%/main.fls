@@ -395,6 +395,8 @@ INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\libertine\LinL
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\vf\public\libertine\LinLibertineTB-tlf-t1.vf
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1--base.tfm
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\enc\dvips\libertine\lbtn_nh77jq.enc
+INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\vf\public\libertine\LinLibertineT-tlf-ts1.vf
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\libertine\LinLibertineT-tlf-ts1--base.tfm
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\enc\dvips\libertine\lbtn_naooyc.enc
@@ -403,8 +405,6 @@ INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\libertine\LinL
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\vf\public\newtx\ntxsy.vf
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\newtx\txsys.tfm
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\newtx\txex-bar.tfm
-INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
-INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\vf\public\libertine\LinLibertineTI-tlf-t1.vf
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\tfm\public\libertine\LinLibertineTI-tlf-t1--base.tfm
 INPUT C:\Users\Lam Nguyen\AppData\Roaming\MiKTeX\fonts\enc\dvips\libertine\lbtn_7grukw.enc
