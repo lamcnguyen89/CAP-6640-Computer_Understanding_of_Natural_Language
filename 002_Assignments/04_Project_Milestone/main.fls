@@ -367,6 +367,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newtx/ntxsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newtx/ntxsyc.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newtx/ntxexa.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/newtx/ntxexa.tfm
+INPUT ./main.bbl
+INPUT ./main.bbl
+INPUT main.bbl
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def
 INPUT /usr/local/texlive/2025/texmf-dist/tex/generic/stringenc/se-pdfdoc.def

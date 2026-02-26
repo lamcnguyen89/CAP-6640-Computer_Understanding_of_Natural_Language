@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: references.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Warning--no number and no volume in guan2024logllm
+Warning--page numbers missing in both pages and numpages fields in guan2024logllm
+You've used 1 entry,
+            6056 wiz_defined-function locations,
+            1491 strings with 18069 characters,
+and the built_in function-call counts, 1242 in all, are:
+= -- 175
+> -- 47
+< -- 0
++ -- 16
+- -- 15
+* -- 101
+:= -- 121
+add.period$ -- 5
+call.type$ -- 1
+change.case$ -- 10
+chr.to.int$ -- 1
+cite$ -- 3
+duplicate$ -- 84
+empty$ -- 62
+format.name$ -- 19
+if$ -- 296
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 4
+newline$ -- 49
+num.names$ -- 7
+pop$ -- 37
+preamble$ -- 1
+purify$ -- 17
+quote$ -- 0
+skip$ -- 24
+stack$ -- 0
+substring$ -- 61
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 16
+warning$ -- 2
+while$ -- 3
+width$ -- 0
+write$ -- 58
+(There were 2 warnings)
