@@ -1,53 +1,51 @@
-This is BibTeX, Version 0.99d
+This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
-Reallocating 'name_of_file' (item size: 1) to 21 items.
 The style file: ACM-Reference-Format.bst
-Reallocating 'name_of_file' (item size: 1) to 15 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: references.bib
-Reallocating 'singl_function' (item size: 4) to 100 items.
-Reallocating 'wiz_functions' (item size: 4) to 9000 items.
-Reallocating 'glb_str_end' (item size: 4) to 20 items.
-Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
-Reallocating 'global_strs' (item size: 1) to 4000000 items.
-Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Warning--empty publisher in 10771398
 Warning--empty address in 10771398
 Warning--empty publisher in 10466820
 Warning--empty address in 10466820
 You've used 4 entries,
-            6273 wiz_defined-function locations,
-            1549 strings with 19564 characters,
-and the built_in function-call counts, 5187 in all, are:
-= -- 534
+            6056 wiz_defined-function locations,
+            1515 strings with 19288 characters,
+and the built_in function-call counts, 5178 in all, are:
+= -- 533
 > -- 220
 < -- 0
 + -- 76
 - -- 72
-* -- 419
+* -- 418
 := -- 526
 add.period$ -- 19
 call.type$ -- 4
 change.case$ -- 41
 chr.to.int$ -- 4
 cite$ -- 8
-duplicate$ -- 454
-empty$ -- 309
+duplicate$ -- 453
+empty$ -- 308
 format.name$ -- 88
-if$ -- 1180
+if$ -- 1177
 int.to.chr$ -- 2
 int.to.str$ -- 1
 missing$ -- 15
 newline$ -- 76
 num.names$ -- 28
-pop$ -- 188
+pop$ -- 187
 preamble$ -- 1
 purify$ -- 72
 quote$ -- 0
-skip$ -- 188
+skip$ -- 187
 stack$ -- 0
 substring$ -- 346
 swap$ -- 55
