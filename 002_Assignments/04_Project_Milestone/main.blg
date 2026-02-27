@@ -1,55 +1,62 @@
-This is BibTeX, Version 0.99d (TeX Live 2025)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
+Reallocating 'name_of_file' (item size: 1) to 21 items.
 The style file: ACM-Reference-Format.bst
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Database file #1: references.bib
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
-Reallocated global_strs (elt_size=200001) to 20 items from 10.
-Reallocated glb_str_end (elt_size=4) to 20 items from 10.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-You've used 1 entry,
-            6056 wiz_defined-function locations,
-            1490 strings with 18081 characters,
-and the built_in function-call counts, 1019 in all, are:
-= -- 95
-> -- 47
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 9000 items.
+Reallocating 'glb_str_end' (item size: 4) to 20 items.
+Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
+Reallocating 'global_strs' (item size: 1) to 4000000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Warning--empty publisher in 10771398
+Warning--empty address in 10771398
+Warning--empty publisher in 10466820
+Warning--empty address in 10466820
+You've used 4 entries,
+            6273 wiz_defined-function locations,
+            1549 strings with 19564 characters,
+and the built_in function-call counts, 5187 in all, are:
+= -- 534
+> -- 220
 < -- 0
-+ -- 16
-- -- 15
-* -- 86
-:= -- 118
-add.period$ -- 4
-call.type$ -- 1
-change.case$ -- 10
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 71
-empty$ -- 52
-format.name$ -- 19
-if$ -- 197
++ -- 76
+- -- 72
+* -- 419
+:= -- 526
+add.period$ -- 19
+call.type$ -- 4
+change.case$ -- 41
+chr.to.int$ -- 4
+cite$ -- 8
+duplicate$ -- 454
+empty$ -- 309
+format.name$ -- 88
+if$ -- 1180
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 51
-num.names$ -- 7
-pop$ -- 27
+missing$ -- 15
+newline$ -- 76
+num.names$ -- 28
+pop$ -- 188
 preamble$ -- 1
-purify$ -- 17
+purify$ -- 72
 quote$ -- 0
-skip$ -- 30
+skip$ -- 188
 stack$ -- 0
-substring$ -- 54
-swap$ -- 4
+substring$ -- 346
+swap$ -- 55
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 30
-warning$ -- 0
-while$ -- 3
+type$ -- 120
+warning$ -- 4
+while$ -- 17
 width$ -- 0
-write$ -- 59
+write$ -- 120
+(There were 4 warnings)

@@ -226,9 +226,22 @@ The objectives of this project are to develop a web application that can scan ne
 
 \section{Related Work}
 
-Recent advances in applying large language models to log analysis have shown promising results. Guan et al.~\cite{guan2025logllmlogbasedanomalydetection} introduced LogLLM, demonstrating how LLMs can effectively detect anomalies in system logs through natural language understanding capabilities. This work provides a foundation for leveraging pre-trained language models in automated log monitoring systems.
+Recent advances in applying large language models to log analysis have shown promising results. 
+
+Egersdoerfer et al.~\cite{10.1145/3588195.3595943} began using LLMs such as ChatGPT for log analysis since they are able to retain context and formulate insightful responses over conversations. These LLMs are able to conduct few-shot and in-context learning with reasoning ability.
+Previously there were several problems with pre-existing techniques. The first issue was that there was a heavy reliance on expert-labeled logs to discern anomalous patterns. This manual labelling slowed down training. The second issues was that they relied on numeric model prediction based on numeric vector input which is not human readable. This lack of human readability rules out targeted error correction by humans. 
+
+Qi et al.~\cite{10466820} introduced LogGPT. This paper explored the use of ChatGPT for log-based anomaly detection. It demonstrated that ChatGPT could be effectively used to identify anomalies in system logs, showing promising results in terms of accuracy and efficiency compared to traditional methods.
+
+Guan et al.~\cite{guan2025logllmlogbasedanomalydetection} introduced LogLLM.Traditional deep-learning methods often struggle to capture semantic information in log messages which are typically organized in natural language. LogLLM employed BERT for extracting semantic vectors from log messages, and uses Llama for classifying log sequences. It also uses a projector to align the vector spaces of BERT and Llama to ensure consistency in understanding log semantics. LogLLM doesn't require log parsers to extraxt templates from logs.
+
+He et al.~\cite{10771398} introduced LLMeLog. This paper introduced a system intended to solve two problems. The first problem is that semantic noise is buried in log events which lead to inevitable gaps between the semantics from the logs and their actual intended meaning. The second problem was that there exists a gap between general semantic embeddings and the specific embedding requirement for anomaly detection tasks. LLMeLog uses LLMs to enrich the content of log events with in-context learning techniques. These enriched logs are then used to fine-tune a pre-trained BERT model. Finally, it trains a transformer-based anomaly detection model with the event representationas produced by this fine-tuned BERT model. F1 scorese exceeded 99 percent and even with using only 10 percent of the labeled data, was still able to achieve an F1 score of 90 percent.
+
 
 \section{Methodology}
+
+In order to demonstrate how LLMs can be used to identify problems in system and network logs, a web application will be developed using the MERN stack. The application will then utilize some LLM log frameworks that were developed for LLM log analysis to scan a repository of logs and identify anomalies. The performance of the application will be evaluated using standard evaluation metrics for anomaly detection.
+
 
 \subsection{Techniques}
 
@@ -237,10 +250,6 @@ Recent advances in applying large language models to log analysis have shown pro
 \section{Preliminary Results}
 
 Initial findings with brief analysis.
-
-\section{References }
-
-Proper ACM reference styles
 
 
 %%
