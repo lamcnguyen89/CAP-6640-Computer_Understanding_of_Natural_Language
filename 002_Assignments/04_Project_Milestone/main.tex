@@ -240,12 +240,26 @@ He et al.~\cite{10771398} introduced LLMeLog. This paper introduced a system int
 
 \section{Methodology}
 
-In order to demonstrate how LLMs can be used to identify problems in system and network logs, a web application will be developed using the MERN stack. The application will then utilize some LLM log frameworks that were developed for LLM log analysis to scan a repository of logs and identify anomalies. The performance of the application will be evaluated using standard evaluation metrics for anomaly detection.
+In order to demonstrate how LLMs can be used to identify problems in system and network logs, a web application will be developed using the MERN stack. The application will then utilize some LLM log frameworks that were developed for LLM log analysis to scan a repository of logs and identify anomalies. An attempt will be made to balance performance with cost efficiency. The performance of the application will be evaluated using standard evaluation metrics for anomaly detection.
 
 
 \subsection{Techniques}
 
+The technique for working with Logging involves 4 steps. 
+
+The first step is to collect and possibly parse the logs. The way the application is designed, all the logs will be generated and downloaded into a single location. The logs will then be parsed and preprocessed to ensure that they are in a format that can be easily analyzed by the LLM.
+
+The second step is to perform Vector Search and Contextual Retrieval. This step provides a baseline of what normal operations shown in the logs will look like. Retrieval augmented generation (RAG) is a technique that can be used to improve the performance of LLMs by providing them with relevant context from the logs. This can be done using vector search techniques to retrieve relevant log entries based on their semantic similarity to the input query. RAG will be used to feed the LLM.The LLM that will be used is Claude.
+
+The third step is to perform Anomaly Detection. This step involves using the LLM to analyze the logs and identify any anomalies or patterns that may indicate a problem. The LLM can be trained to recognize normal patterns in the logs and flag any deviations from those patterns as potential anomalies.
+
+The fourth step is to analyze the root cause of all the errors from the series of logs and explain in human readable language what the problem is and how to fix it. 
+
 \subsection{Evaluation Metrics}
+
+The performance of the application will be evaluated using standard evaluation metrics for anomaly detection, such as precision, recall, and F1 score. These metrics will be calculated based on the number of true positives, false positives, and false negatives identified by the application.
+
+For review, precision is the ratio of true positives to the total number of positive predictions made by the model. Recall is the ratio of true positives to the total number of actual positive cases in the dataset. The F1 score is the harmonic mean of precision and recall, providing a single metric that balances both aspects of performance.
 
 \section{Preliminary Results}
 
