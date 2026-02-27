@@ -38,8 +38,15 @@
 
 \bibitem[Egersdoerfer et~al\mbox{.}(2023)]%
         {10.1145/3588195.3595943}
-\bibfield{author}{\bibinfo{person}{Chris Egersdoerfer}, \bibinfo{person}{Di Zhang}, {and} \bibinfo{person}{Dong Dai}.} \bibinfo{year}{2023}\natexlab{}.
-\newblock \showarticletitle{Early Exploration of Using ChatGPT for Log-based Anomaly Detection on Parallel File Systems Logs}. In \bibinfo{booktitle}{\emph{Proceedings of the 32nd International Symposium on High-Performance Parallel and Distributed Computing}} (Orlando, FL, USA) \emph{(\bibinfo{series}{HPDC '23})}. \bibinfo{publisher}{Association for Computing Machinery}, \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{315–316}.
+\bibfield{author}{\bibinfo{person}{Chris Egersdoerfer}, \bibinfo{person}{Di
+  Zhang}, {and} \bibinfo{person}{Dong Dai}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Early Exploration of Using ChatGPT for Log-based
+  Anomaly Detection on Parallel File Systems Logs}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 32nd International Symposium on
+  High-Performance Parallel and Distributed Computing}} (Orlando, FL, USA)
+  \emph{(\bibinfo{series}{HPDC '23})}. \bibinfo{publisher}{Association for
+  Computing Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{315–316}.
 \newblock
 \showISBNx{9798400701559}
 \href{https://doi.org/10.1145/3588195.3595943}{doi:\nolinkurl{10.1145/3588195.3595943}}
@@ -47,8 +54,11 @@
 
 \bibitem[Guan et~al\mbox{.}(2025)]%
         {guan2025logllmlogbasedanomalydetection}
-\bibfield{author}{\bibinfo{person}{Wei Guan}, \bibinfo{person}{Jian Cao}, \bibinfo{person}{Shiyou Qian}, \bibinfo{person}{Jianqi Gao}, {and} \bibinfo{person}{Chun Ouyang}.} \bibinfo{year}{2025}\natexlab{}.
-\newblock \bibinfo{title}{LogLLM: Log-based Anomaly Detection Using Large Language Models}.
+\bibfield{author}{\bibinfo{person}{Wei Guan}, \bibinfo{person}{Jian Cao},
+  \bibinfo{person}{Shiyou Qian}, \bibinfo{person}{Jianqi Gao}, {and}
+  \bibinfo{person}{Chun Ouyang}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{LogLLM: Log-based Anomaly Detection Using Large
+  Language Models}.
 \newblock
 \showeprint[arxiv]{2411.08561}~[cs.SE]
 \urldef\tempurl%
@@ -59,16 +69,31 @@
 
 \bibitem[He et~al\mbox{.}(2024)]%
         {10771398}
-\bibfield{author}{\bibinfo{person}{Minghua He}, \bibinfo{person}{Tong Jia}, \bibinfo{person}{Chiming Duan}, \bibinfo{person}{Huaqian Cai}, \bibinfo{person}{Ying Li}, {and} \bibinfo{person}{Gang Huang}.} \bibinfo{year}{2024}\natexlab{}.
-\newblock \showarticletitle{LLMeLog: An Approach for Anomaly Detection based on LLM-enriched Log Events}. In \bibinfo{booktitle}{\emph{2024 IEEE 35th International Symposium on Software Reliability Engineering (ISSRE)}}. \bibinfo{pages}{132--143}.
+\bibfield{author}{\bibinfo{person}{Minghua He}, \bibinfo{person}{Tong Jia},
+  \bibinfo{person}{Chiming Duan}, \bibinfo{person}{Huaqian Cai},
+  \bibinfo{person}{Ying Li}, {and} \bibinfo{person}{Gang Huang}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{LLMeLog: An Approach for Anomaly Detection based on
+  LLM-enriched Log Events}. In \bibinfo{booktitle}{\emph{2024 IEEE 35th
+  International Symposium on Software Reliability Engineering (ISSRE)}}.
+  \bibinfo{pages}{132--143}.
 \newblock
 \href{https://doi.org/10.1109/ISSRE62328.2024.00023}{doi:\nolinkurl{10.1109/ISSRE62328.2024.00023}}
 
 
 \bibitem[Qi et~al\mbox{.}(2023)]%
         {10466820}
-\bibfield{author}{\bibinfo{person}{Jiaxing Qi}, \bibinfo{person}{Shaohan Huang}, \bibinfo{person}{Zhongzhi Luan}, \bibinfo{person}{Shu Yang}, \bibinfo{person}{Carol Fung}, \bibinfo{person}{Hailong Yang}, \bibinfo{person}{Depei Qian}, \bibinfo{person}{Jing Shang}, \bibinfo{person}{Zhiwen Xiao}, {and} \bibinfo{person}{Zhihui Wu}.} \bibinfo{year}{2023}\natexlab{}.
-\newblock \showarticletitle{LogGPT: Exploring ChatGPT for Log-Based Anomaly Detection}. In \bibinfo{booktitle}{\emph{2023 IEEE International Conference on High Performance Computing \& Communications, Data Science \& Systems, Smart City \& Dependability in Sensor, Cloud \& Big Data Systems \& Application (HPCC/DSS/SmartCity/DependSys)}}. \bibinfo{pages}{273--280}.
+\bibfield{author}{\bibinfo{person}{Jiaxing Qi}, \bibinfo{person}{Shaohan
+  Huang}, \bibinfo{person}{Zhongzhi Luan}, \bibinfo{person}{Shu Yang},
+  \bibinfo{person}{Carol Fung}, \bibinfo{person}{Hailong Yang},
+  \bibinfo{person}{Depei Qian}, \bibinfo{person}{Jing Shang},
+  \bibinfo{person}{Zhiwen Xiao}, {and} \bibinfo{person}{Zhihui Wu}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{LogGPT: Exploring ChatGPT for Log-Based Anomaly
+  Detection}. In \bibinfo{booktitle}{\emph{2023 IEEE International Conference
+  on High Performance Computing \& Communications, Data Science \& Systems,
+  Smart City \& Dependability in Sensor, Cloud \& Big Data Systems \&
+  Application (HPCC/DSS/SmartCity/DependSys)}}. \bibinfo{pages}{273--280}.
 \newblock
 \href{https://doi.org/10.1109/HPCC-DSS-SmartCity-DependSys60770.2023.00045}{doi:\nolinkurl{10.1109/HPCC-DSS-SmartCity-DependSys60770.2023.00045}}
 
