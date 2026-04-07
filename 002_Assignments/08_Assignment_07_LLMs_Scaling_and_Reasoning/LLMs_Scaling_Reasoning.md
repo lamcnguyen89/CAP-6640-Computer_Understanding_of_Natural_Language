@@ -12,7 +12,16 @@ Describe the architectural structure of large language models based on the Trans
 
 **Answer:**
 
-Large language models built on the Transformer architecture consist of stacked layers of multi-head self-attention mechanisms and feed-forward networks, with residual connections and layer normalization throughout. Self-attention allows each token to attend to all other tokens in the sequence, computing weighted combinations based on learned query, key, and value projections, which enables the model to capture long-range dependencies regardless of distance in the sequence. Since Transformers lack inherent sequential structure, positional encodings (either learned or fixed sinusoidal patterns) are added to input embeddings to inject information about token positions. The stacking of multiple layers allows the model to build hierarchical representations: lower layers capture local patterns and syntactic features while higher layers model abstract semantic relationships and long-range discourse structure, enabling sophisticated language understanding and generation capabilities.
+Large language models built on the Transformer architecture consist of stacked layers of multi-head self-attention mechanisms and feed-forward networks, with residual connections and layer normalization throughout the layers.
+
+Self-attention allows each token to attend to all other tokens in the sequence, computing weighted combinations based on learned query, key, and value projections. Self-attention enables the model to capture long-range dependencies with no penalty to distance in sequence. Since Transformers lack inherent sequential structure, positional encodings are added to input embeddings to inject info about token positions.
+
+Multiple stacked layers allow the model to build hierarchical representations:
+
+- lower layers capture local patterns and syntactic features
+- higher layers capture abstract semantic relationships and long-range discourse structure
+
+This hierarchy of specific to more abstract allows these transformers to capture all levels of texts, images, video, etc...
 
 ---
 
@@ -22,7 +31,11 @@ Explain the autoregressive pretraining objective used in decoder-only large lang
 
 **Answer:**
 
-Decoder-only large language models are pretrained using an autoregressive objective where the model learns to predict the next token in a sequence given all previous tokens, formalized as maximizing the likelihood P(x*t | x_1, ..., x*{t-1}) for each position t. This next-token prediction task, when applied across billions of tokens from diverse text corpora, implicitly teaches the model grammar, facts, reasoning patterns, and linguistic structures because accurate prediction requires understanding context, semantics, and patterns in natural language. During training, the model processes entire sequences in parallel using causal masking to prevent tokens from attending to future positions, computing losses for all positions simultaneously via teacher forcing where ground-truth previous tokens are always used as input. In contrast, during inference, the model generates text autoregressively by sampling or selecting one token at a time and feeding its own predictions back as input for subsequent steps, creating a sequential generation process where errors can compound but which enables open-ended generation of arbitrary-length sequences.
+Decoder-only large language models are pretrained using an autoregressive objective. This means the model learns to predict the next token in a sequence given all previous tokens. This next-token prediction, given enough good data, teaches the model grammar, facts, reasoning patterns, and linguistic structures because accurate prediction requires understanding context, semantics, and patterns in natural language.
+
+During training, the model processes entire sequences in parallel using causal masking to prevent tokens from attending to future positions. The model also computes losses for all positions at the same time using teacher forcing where ground-truth previous tokens are used as input.
+
+During inference, the model generates text autoregressively by sampling or selecting one token at a time. It then feeds its own predictions back as input for subsequent steps. This creates a sequential generation process where errors can compound but can also enable open-ended generation of sequences of varying lengths.
 
 ---
 
@@ -32,7 +45,11 @@ Discuss the relationship between model size, training data scale, and performanc
 
 **Answer:**
 
-Research has demonstrated that language model performance follows predictable scaling laws: loss decreases as a power-law function of model parameters, training data size, and compute budget, with optimal performance requiring balanced scaling of both model size and training data rather than increasing just one dimension. Increasing parameters expands model capacity to memorize patterns and represent complex functions, while more training data provides diverse examples that improve generalization and reduce overfitting, together enabling models to capture increasingly subtle linguistic phenomena and world knowledge. Notably, certain capabilities like few-shot learning, complex reasoning, and instruction following emerge suddenly at specific scale thresholds rather than improving gradually, suggesting qualitative phase transitions in model behavior. However, scaling alone has fundamental limitations: it yields diminishing returns as models approach irreducible loss from data noise and ambiguity, it doesn't guarantee factual accuracy or reasoning correctness without alignment techniques, it incurs exponentially growing computational and environmental costs, and it cannot overcome inherent architectural limitations or systematic biases present in training data without complementary innovations in model design and training methodology.
+Research has demonstrated that language model performance follows predictable scaling laws: loss decreases as a power-law function of model parameters, training data size, and compute budget. Optimal performance requires balanced scaling of both model size and training data rather than increasing just one dimension.
+
+Increasing parameters expands the model's capacity to memorize patterns and represent complex functions. More training data provides diverse examples that improve generalization and reduce overfitting. Together both enable models to capture increasingly wider and deeper linguistic phenomena and world knowledge.
+
+Certain things like few-shot learning, complex reasoning, and instruction following emerge suddenly at specific scale thresholds rather than improving gradually. However, scaling alone has fundamental limitations: it yields diminishing returns as models approach non-removable loss from data noise and ambiguity. It doesn't guarantee factual accuracy or reasoning correctness without alignment techniques. Finally, scaling creates exponential computational and environmental costs, and it cannot overcome inherent architectural limitations or systematic biases present in training data.
 
 ---
 
@@ -42,7 +59,15 @@ Describe architectural or system-level techniques used to improve scalability an
 
 **Answer:**
 
-Modern large language models employ various architectural and system-level optimizations to manage computational demands: sparse attention mechanisms (like local or strided attention) reduce the quadratic complexity of self-attention from O(n²) to O(n√n) or O(n), enabling longer context windows; mixture-of-experts (MoE) architectures activate only a subset of parameters per token, dramatically increasing model capacity while keeping inference costs manageable; quantization techniques represent weights and activations in lower precision (e.g., int8 or int4) reducing memory footprint and accelerating computation with minimal performance degradation; gradient checkpointing trades computation for memory by recomputing activations during backpropagation rather than storing them; model parallelism strategies distribute layers across devices while tensor parallelism splits individual layers, and pipeline parallelism processes different micro-batches at different stages simultaneously to efficiently train models larger than single-device memory; and KV-cache optimization stores previously computed key-value pairs during autoregressive generation to avoid redundant computation. These techniques collectively enable training and deploying models with hundreds of billions to trillions of parameters while reducing training time from years to weeks and making inference feasible on consumer hardware through techniques like FlashAttention for memory-efficient attention computation.
+Modern LLMs use various architectural and system-level optimizations to reduce computational needs:
+
+1. sparse attention mechanisms reduce the quadratic complexity of self-attention from O(n²) to O(n√n) or O(n) enabling longer context windows
+2. mixture-of-experts (MoE) architectures activate only a subset of parameters per token, increasing model capacity while keeping inference costs manageable
+3. quantization techniques represent weights and activations in lower precision (e.g., int8 or int4) reducing memory requirements and increases speed without too much accuracy loss.
+4. gradient checkpointing trades computation for memory by recomputing activations during backpropagation rather than storing them
+5. model parallelism strategies distribute layers across devices while tensor parallelism splits individual layers and allow multiple GPUs
+6. pipeline parallelism processes different micro-batches at different stages at the same time using multiple GPUs
+7. KV-cache optimization stores previously computed key-value pairs during autoregressive generation to reduce redundant computation. T
 
 ---
 
@@ -52,7 +77,9 @@ Explain how retrieval-augmented generation integrates external knowledge into la
 
 **Answer:**
 
-Retrieval-augmented generation (RAG) enhances language models by incorporating an external retrieval system that fetches relevant documents from a knowledge base (such as Wikipedia, domain-specific corpora, or document collections) based on the input query, then conditions the language model's generation on both the original input and the retrieved context. The retrieval component typically uses dense vector representations (e.g., from BERT-based encoders) to perform semantic search, selecting top-k documents by similarity, which are then prepended to the prompt or integrated into the model's attention mechanism, effectively expanding the model's accessible knowledge beyond its parametric memory. This approach significantly improves factual grounding because the model can reference specific, up-to-date information from retrieved documents rather than relying solely on patterns memorized during pretraining, which may be outdated, incomplete, or prone to hallucination—particularly valuable for knowledge-intensive tasks like open-domain question answering, fact verification, and specialized domains where in-context evidence reduces the risk of generating plausible-sounding but incorrect information. Additionally, RAG provides interpretability and verifiability since generated outputs can be traced to source documents, enables dynamic knowledge updates without retraining, and reduces the need for massive parametric capacity to store encyclopedic knowledge.
+Retrieval-augmented generation (RAG) enhances language models by using an external retrieval system that retrieves relevant documents from a knowledge base (like Wikipedia) based on the input query It then conditions the language model's generation on both the original input and the retrieved context.
+
+The retrieval component typically uses dense vector representations (e.g., from BERT-based encoders) to perform semantic search, selecting top-k documents by similarity, which are then prepended to the prompt or integrated into the model's attention mechanism, effectively expanding the model's accessible knowledge beyond its parametric memory. This approach significantly improves factual grounding because the model can reference specific, up-to-date information from retrieved documents rather than relying solely on patterns memorized during pretraining, which may be outdated, incomplete, or prone to hallucination—particularly valuable for knowledge-intensive tasks like open-domain question answering, fact verification, and specialized domains where in-context evidence reduces the risk of generating plausible-sounding but incorrect information. Additionally, RAG provides interpretability and verifiability since generated outputs can be traced to source documents, enables dynamic knowledge updates without retraining, and reduces the need for massive parametric capacity to store encyclopedic knowledge.
 
 ---
 
