@@ -4,10 +4,6 @@
 
 This Assignment examines algorithmic bias, formal fairness definitions, auditing methodologies, privacy risks, and governance considerations in NLP systems.
 
----
-
----
-
 ## Questions
 
 ### Question 1: Sources of Bias in NLP Systems
@@ -21,7 +17,15 @@ Identify and explain the major sources of bias in NLP systems. Discuss how bias 
 
 **Answer:**
 
-Bias in NLP systems emerges from multiple interconnected sources throughout the pipeline: data collection introduces sampling bias when training corpora fail to represent diverse populations or overrepresent dominant groups; annotation processes embed human biases through labeler demographics, subjective judgments, and inconsistent guidelines; representation learning amplifies statistical patterns that reflect historical inequities, leading models to encode stereotypical associations between protected attributes and outcomes; and deployment context creates new biases when systems trained on one domain are applied to different populations or when prediction errors have asymmetric consequences across demographic groups. These sources compound rather than cancel, making bias a systemic rather than isolated problem.
+Bias in NLP systems emerges from multiple related sources throughout training and inference:
+
+1. data collection introduces sampling bias when training corpora fails to represent diverse populations or overrepresent dominant groups
+
+2. annotation processes embed human biases through labeler demographics, subjective judgments, and inconsistent guidelines
+
+3. representation learning amplifies patterns that reflect real life inequality, leading models to encode stereotypes between protected attributes and outcomes
+
+4. deployment context creates new biases when systems trained on one domain are applied to different populations or when prediction errors have asymmetric consequences across demographics. These sources compound rather than cancel, making bias systematic.
 
 ---
 
@@ -31,7 +35,9 @@ Explain how bias can manifest in learned representations such as word or context
 
 **Answer:**
 
-Bias manifests in embedding geometry when the distributional patterns that representations capture reflect societal stereotypes and inequities present in training data, causing vectors for demographic identifiers (e.g., gender terms, ethnic names) to cluster near certain semantic concepts while being distant from others. For example, word embeddings might position "woman" closer to "nurse" and "man" closer to "programmer," or position names associated with certain ethnic groups closer to negative sentiment words, encoding harmful associations in the continuous vector space that downstream models inherit and potentially amplify. These geometric biases can be measured through cosine similarity, projection onto subspaces defined by attribute pairs, or by examining nearest neighbors, revealing how models systematically associate protected characteristics with unrelated semantic features.
+Bias manifests in embedding geometry when the distributional patterns that representations capture reflect social stereotypes and inequality present in training data. This causes vectors for demographic to cluster near certain semantic concepts while being distant from others.
+
+For example, word embeddings might position "woman" closer to "nurse" and "man" closer to "programmer," or position names associated with certain ethnic groups closer to negative sentiment words, encoding harmful associations in the continuous vector space. These biases can be measured through cosine similarity, projection onto subspaces defined by attribute pairs, or by examining nearest neighbors, revealing how models associate characteristics with unrelated semantic features.
 
 ---
 
@@ -46,7 +52,11 @@ Address the following:
 
 **Answer:**
 
-Demographic parity requires that positive predictions occur at equal rates across groups (P(Ŷ=1|A=a) = P(Ŷ=1|A=b)), computed by comparing prediction rates, while equalized odds requires that true positive and false positive rates are equal across groups (P(Ŷ=1|Y=y,A=a) = P(Ŷ=1|Y=y,A=b) for y∈{0,1}), computed by stratifying error rates by both true label and group membership. These criteria often conflict because they impose different structural constraints: satisfying demographic parity when base rates differ across groups necessarily violates equalized odds (and vice versa), a mathematical impossibility proven by Chouldechova's theorem, forcing practitioners to make normative choices about which fairness notion matters most for their specific context rather than achieving all simultaneously.
+Demographic parity requires that positive predictions occur at equal rates across groups (P(Ŷ=1|A=a) = P(Ŷ=1|A=b)). Demographic Parity is computed by comparing prediction rates.
+
+Equalized odds require that true positive and false positive rates are equal across groups (P(Ŷ=1|Y=y,A=a) = P(Ŷ=1|Y=y,A=b) for y∈{0,1}). Equalized odds are computed by stratifying error rates by both true label and group membership.
+
+These criteria usually conflict because they create different constraints: satisfying demographic parity when base rates differ across groups violates equalized odds (and vice versa). It is mathematical impossibility proven by Chouldechova's theorem. Designers of the models have to balance the 2 criteria.
 
 ---
 
@@ -59,7 +69,11 @@ Explain how classification thresholds influence fairness metrics. Discuss:
 
 **Answer:**
 
-Classification thresholds directly influence fairness metrics because adjusting where predictions transition from negative to positive changes the balance between false positives and false negatives differently across groups: lowering thresholds increases both true and false positive rates, while raising them has the opposite effect, meaning that group-specific or global threshold adjustments can improve one fairness metric (e.g., moving toward demographic parity) while worsening another (e.g., violating equalized odds). Fairness inherently involves normative trade-offs because different stakeholders prioritize different values—some may prioritize equal access (demographic parity), others equal treatment conditional on merit (equalized odds or calibration), and still others might focus on minimizing worst-case harms—and mathematical impossibility results show these cannot generally be satisfied simultaneously, requiring explicit ethical reasoning rather than purely technical solutions.
+Classification thresholds influence fairness metrics because adjusting where predictions transition from negative to positive, changes the balance between false positives and false negatives differently across groups.
+
+Lowering thresholds increases both true and false positive rates. Raising them means that group-specific or global threshold adjustments can improve one fairness metric while worsening another.
+
+Fairness involves trade-offs because different groups have different values. Some may prioritize equal access (demographic parity), others equal treatment conditional on merit (equalized odds or calibration). Others might focus on minimizing harm. You can't satisfy everybody.
 
 ---
 
@@ -73,7 +87,11 @@ Describe systematic approaches to auditing NLP systems for bias. Explain how the
 
 **Answer:**
 
-Systematic bias auditing employs counterfactual testing by creating minimal input pairs that differ only in demographic attributes (e.g., swapping male/female names or pronouns) and measuring whether model outputs change inappropriately, revealing whether decisions are influenced by protected characteristics rather than task-relevant features. Controlled prompts and matched template evaluation extend this approach by systematically varying demographic markers across standardized sentence templates while holding semantic content constant (e.g., "[Name] is a skilled [profession]" across diverse names), then aggregating predictions to detect asymmetric behavior such as differential sentiment scores, occupation predictions, or toxicity ratings. These methods quantify bias by measuring statistical disparities in model behavior that cannot be explained by legitimate differences in input content, providing evidence of learned associations between demographic attributes and task outputs.
+Systematic bias auditing employs counterfactual testing by creating minimal input pairs that differ only in demographic attributes and measuring whether model outputs change inappropriately. This reveals whether decisions are influenced by protected characteristics rather than task-relevant features.
+
+Controlled prompts and matched template evaluation extend this approach by systematically varying demographic markers across sentence templates while holding semantic content constant, then combining predictions to detect asymmetric behavior such as differential sentiment scores, occupation predictions, or toxicity ratings.
+
+These methods quantify bias by measuring disparities in model behavior that cannot be explained by legit differences in input content, providing evidence of learned associations between demographic attributes and task outputs.
 
 ---
 
@@ -86,7 +104,11 @@ Explain how large language models may memorize training data. Discuss:
 
 **Answer:**
 
-Large language models can memorize training data by encoding specific sequences verbatim rather than learning generalizable patterns, a phenomenon distinct from generalization where models extract statistical regularities applicable to unseen inputs—memorization can be detected when models reproduce exact training examples, including rare or unique strings, despite being evaluated on held-out prompts. This creates serious privacy risks because models may leak sensitive information such as personal identifiers, medical records, proprietary code, or copyrighted content when prompted appropriately, even if such data appeared infrequently in training; extraction attacks, where adversaries strategically query models to elicit memorized content, have successfully recovered individuals' names, addresses, phone numbers, and other private information from deployed models, violating expectations that training data remains confidential after model release.
+LLMs can memorize training data by encoding specific sequences exactly rather than learning generalizable patterns. This is different from generalization where models extract statistical regularities that can work with novel inputs.
+
+Memorization can be detected when models reproduce exact training examples, including rare or unique strings, despite being evaluated on held-out prompts. This creates serious privacy risks because models may leak sensitive information such as personal identifiers, medical records, proprietary code, or copyrighted content when prompted appropriately.
+
+Extraction attacks, where adversaries strategically query models to elicit memorized content, have recovered individuals' names, addresses, phone numbers, and other private information from deployed models.
 
 ---
 
@@ -99,7 +121,15 @@ Define dual-use risk in NLP systems. Discuss:
 
 **Answer:**
 
-Dual-use risk refers to the potential for NLP technologies developed for beneficial applications to be repurposed or misused for harmful ends: text generation models intended to assist writers can produce misinformation or spam at scale; translation systems can enable surveillance of minority language speakers; and sentiment analysis tools designed for customer feedback can be deployed for employee monitoring or political suppression. Deployment decisions require careful risk assessment because model capabilities, once released, cannot be easily controlled or revoked—different contexts create different risk profiles (e.g., a resume screening tool has higher stakes than a game NPC), different populations face asymmetric vulnerabilities (e.g., marginalized groups suffer disproportionate harms from failures), and unintended uses may emerge after deployment, necessitating proactive evaluation of potential misuse, impact assessment across stakeholder groups, and ongoing monitoring rather than one-time technical validation.
+Dual-use risk is the potential for NLP technologies to be repurposed or misused for harmful ends.
+
+- Text generation models intended to assist writers can produce misinformation or spam at scale
+- translation systems can enable surveillance of minority language speakers
+- sentiment analysis tools designed for customer feedback can be deployed for employee monitoring or political suppression.
+
+Once deployed, models cannot be easily controlled or removed. Different contexts create different risk profiles (ex. resume screening tool has higher stakes than video game AI). Different populations face more or less vulnerabilities (racial and gender minorities). Unintended uses may emerge after deployment.
+
+These risks require thorough and creative evaluation of potential misuse and continuous monitoring in the real world.
 
 ---
 
@@ -115,6 +145,10 @@ in ensuring responsible NLP system deployment.
 
 **Answer:**
 
-Bias mitigation cannot be a one-time technical fix because systems operate in dynamic environments where data distributions shift, user populations change, and societal norms evolve, requiring continuous attention rather than deployment-and-forget approaches. Documentation practices such as model cards and datasheets establish transparency by recording training data characteristics, known limitations, intended use cases, and fairness evaluations, enabling downstream users to make informed decisions; monitoring involves ongoing measurement of deployed system behavior across demographic groups, tracking performance degradation and emergent biases in production; and governance mechanisms including ethical review boards, stakeholder consultation, feedback channels, and clear accountability structures ensure that technical interventions align with organizational values and affected communities have meaningful input. Together, these sociotechnical practices create accountable systems where bias mitigation is an ongoing organizational commitment rather than a preprocessing step.
+Bias mitigation cannot be a one-time technical fix because systems operate in dynamic environments where data distributions shift, user populations change, and societal norms evolve. This requires continuous attention and monitoring.
 
-**Answer:**
+Documentation practices such as model cards and datasheets establish transparency by recording training data characteristics, known limitations, intended use cases, and fairness evaluations.
+
+Monitoring involves ongoing measurement of deployed system behavior across demographics and tracking performance degradation and emergent biases in the real world.
+
+Governance mechanisms like ethical review boards increase the chances that technical interventions align with organizational values and affected communities.

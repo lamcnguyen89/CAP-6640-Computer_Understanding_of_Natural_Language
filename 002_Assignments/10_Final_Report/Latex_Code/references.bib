@@ -1,0 +1,69 @@
+@inproceedings{10466820,
+  author    = {Qi, Jiaxing and Huang, Shaohan and Luan, Zhongzhi and Yang, Shu and Fung, Carol and Yang, Hailong and Qian, Depei and Shang, Jing and Xiao, Zhiwen and Wu, Zhihui},
+  booktitle = {2023 IEEE International Conference on High Performance Computing \& Communications, Data Science \& Systems, Smart City \& Dependability in Sensor, Cloud \& Big Data Systems \& Application (HPCC/DSS/SmartCity/DependSys)},
+  title     = {LogGPT: Exploring ChatGPT for Log-Based Anomaly Detection},
+  year      = {2023},
+  volume    = {},
+  number    = {},
+  pages     = {273-280},
+  keywords  = {Learning systems;Chatbots;Data models;Noise measurement;Task analysis;Anomaly detection;Faces;anomaly detection;deep learning;ChatGPT;system log},
+  doi       = {10.1109/HPCC-DSS-SmartCity-DependSys60770.2023.00045}
+}
+
+@misc{guan2025logllmlogbasedanomalydetection,
+  title         = {LogLLM: Log-based Anomaly Detection Using Large Language Models},
+  author        = {Wei Guan and Jian Cao and Shiyou Qian and Jianqi Gao and Chun Ouyang},
+  year          = {2025},
+  eprint        = {2411.08561},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.SE},
+  url           = {https://arxiv.org/abs/2411.08561}
+}
+
+@inproceedings{10771398,
+  author    = {He, Minghua and Jia, Tong and Duan, Chiming and Cai, Huaqian and Li, Ying and Huang, Gang},
+  booktitle = {2024 IEEE 35th International Symposium on Software Reliability Engineering (ISSRE)},
+  title     = {LLMeLog: An Approach for Anomaly Detection based on LLM-enriched Log Events},
+  year      = {2024},
+  volume    = {},
+  number    = {},
+  pages     = {132-143},
+  keywords  = {Training;Analytical models;Large language models;Semantics;Noise;Training data;Transformers;Vectors;Software reliability;Anomaly detection;Large Language Models;Log Analysis;Anomaly Detection},
+  doi       = {10.1109/ISSRE62328.2024.00023}
+}
+
+@article{10.1145/3771283,
+  author    = {Hadadi, Fatemeh and Xu, Qinghua and Bianculli, Domenico and Briand, Lionel},
+  title     = {LLM meets ML: Data-efficient Anomaly Detection on Unstable Logs},
+  year      = {2025},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  issn      = {1049-331X},
+  url       = {https://doi.org/10.1145/3771283},
+  doi       = {10.1145/3771283},
+  abstract  = {Most log-based anomaly detectors assume logs are stable, though in reality they are often unstable due to software or environmental changes. Anomaly detection on unstable logs (ULAD) is therefore a more realistic, yet under-investigated challenge. Current approaches predominantly employ machine learning (ML) models, which often require extensive labeled data for training. To mitigate data insufficiency, we propose FlexLog, a novel hybrid approach for ULAD that combines ML models — decision tree, k-nearest neighbors, and a feedforward neural network — with a Large Language Model (Mistral) through ensemble learning. FlexLog also incorporates a cache and retrieval-augmented generation (RAG) to further enhance efficiency and effectiveness. To evaluate FlexLog, we configured four datasets for ULAD, namely ADFA-U, LOGEVOL-U, SynHDFS-U, and SYNEVOL-U. FlexLog outperforms all baselines by at least 1.2 percentage points (pp) in F1 score while using much less labeled data (62.87 pp reduction). When trained on the same amount of data as the baselines, FlexLog achieves up to a 13 pp increase in F1 score on ADFA-U across varying training dataset sizes. Additionally, FlexLog maintains inference time under one second per log sequence, making it suitable for most applications, except latency-sensitive systems. Further analysis reveals the positive impact of FlexLog’s key components: cache, RAG, and ensemble learning.},
+  note      = {Just Accepted},
+  journal   = {ACM Trans. Softw. Eng. Methodol.},
+  month     = oct,
+  keywords  = {unstable logs, anomaly detection, data efficiency, ensemble learning, large language models}
+}
+
+@inproceedings{10.1145/3588195.3595943,
+  author    = {Egersdoerfer, Chris and Zhang, Di and Dai, Dong},
+  title     = {Early Exploration of Using ChatGPT for Log-based Anomaly Detection on Parallel File Systems Logs},
+  year      = {2023},
+  isbn      = {9798400701559},
+  publisher = {Association for Computing Machinery},
+  address   = {New York, NY, USA},
+  url       = {https://doi.org/10.1145/3588195.3595943},
+  doi       = {10.1145/3588195.3595943},
+  abstract  = {Log-based anomaly detection has been extensively studied to help detect complex runtime anomalies in production systems. However, existing techniques exhibit several common issues. First, they rely heavily on expert-labeled logs to discern anomalous behavior patterns. But labelling enough log data manually to effectively train deep neural networks may take too long. Second, they rely on numeric model prediction based on numeric vector input which causes model decisions to be largely non-interpretable by humans which further rules out targeted error correction.In recent years, we have witnessed groundbreaking advancements in large language models (LLMs) such as ChatGPT. These models have proven their ability to retain context and formulate insightful responses over entire conversations. They also present the ability to conduct few-shot and in-context learning with reasoning ability. In light of these abilities, it is only natural to explore their applicability in understanding log content and conducting anomaly classification among parallel file system logs.},
+  booktitle = {Proceedings of the 32nd International Symposium on High-Performance Parallel and Distributed Computing},
+  pages     = {315–316},
+  numpages  = {2},
+  keywords  = {anomaly detection, large language model, parallel file system},
+  location  = {Orlando, FL, USA},
+  series    = {HPDC '23}
+}
+
+

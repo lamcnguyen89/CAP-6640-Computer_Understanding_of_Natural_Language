@@ -79,7 +79,9 @@ Explain how retrieval-augmented generation integrates external knowledge into la
 
 Retrieval-augmented generation (RAG) enhances language models by using an external retrieval system that retrieves relevant documents from a knowledge base (like Wikipedia) based on the input query It then conditions the language model's generation on both the original input and the retrieved context.
 
-The retrieval component typically uses dense vector representations (e.g., from BERT-based encoders) to perform semantic search, selecting top-k documents by similarity, which are then prepended to the prompt or integrated into the model's attention mechanism, effectively expanding the model's accessible knowledge beyond its parametric memory. This approach significantly improves factual grounding because the model can reference specific, up-to-date information from retrieved documents rather than relying solely on patterns memorized during pretraining, which may be outdated, incomplete, or prone to hallucination—particularly valuable for knowledge-intensive tasks like open-domain question answering, fact verification, and specialized domains where in-context evidence reduces the risk of generating plausible-sounding but incorrect information. Additionally, RAG provides interpretability and verifiability since generated outputs can be traced to source documents, enables dynamic knowledge updates without retraining, and reduces the need for massive parametric capacity to store encyclopedic knowledge.
+The retrieval component normally uses dense vector representations to perform semantic search, selecting top-k documents by similarity. These documents are then added to the prompt or integrated into the model's attention mechanism. This expands the model's accessible knowledge beyond its parametric memory.
+
+RAG improves factual grounding because the model can reference specific, up-to-date information from retrieved documents rather than relying solely on patterns memorized during pretraining, which may be outdated, incomplete, or prone to hallucination. Additionally, RAG provides human use and human fact checking since generated outputs can be traced to source documents Finally, RAG enables dynamic knowledge updates without retraining, and reduces the need for huge storage to keep knowledge.
 
 ---
 
@@ -89,7 +91,19 @@ Explain how prompting strategies can influence reasoning behavior in large langu
 
 **Answer:**
 
-Prompting strategies, particularly chain-of-thought (CoT) prompting, dramatically influence reasoning performance by instructing models to generate explicit intermediate reasoning steps before producing final answers, either through few-shot examples demonstrating step-by-step solutions or zero-shot instructions like "Let's think step by step." This structured approach improves accuracy on complex tasks including multi-step arithmetic, commonsense reasoning, and logical inference because it allows models to decompose problems into manageable sub-tasks, maintain relevant context across reasoning chains, and correct potential errors through intermediate verification—performance gains that scale with model size, emerging clearly in models beyond ~100B parameters. The effectiveness of CoT reveals several insights about model reasoning: models possess latent reasoning capabilities that require appropriate scaffolding to manifest, the sequential generation process benefits from explicit intermediate states that serve as working memory, and models can perform sophisticated pattern matching over reasoning templates learned from pretraining data. However, CoT also exposes limitations: models may generate plausible-looking but logically flawed reasoning chains, performance remains sensitive to prompt phrasing and example selection, and improvements often reflect better utilization of memorized patterns rather than true symbolic reasoning or causal understanding, highlighting the gap between surface-level coherence and robust logical inference.
+Prompting strategies influence reasoning performance by instructing models to generate explicit intermediate reasoning steps before producing final answers. Prompt strategies can do that through few-shot examples demonstrating step-by-step solutions or zero-shot instructions like "Let's think step by step." This structured approach improves accuracy on complex tasks including math logic, common-sense reasoning, and logical inference because it allows models to break down problems into smaller tasks that are more manageable yet still allow it to maintain context over the various steps.
+
+CoT reveals several things about model reasoning:
+
+1. models possess latent reasoning capabilities that require some human supervision to bring out
+2. the sequential generation process benefits from intermediate states that serve as working memory
+3. models can perform sophisticated pattern matching over reasoning templates learned from pretraining data.
+
+However, CoT also exposes limitations:
+
+1. models may generate reasoning that on the surface looks good but is actually flawed.
+2. performance remains sensitive to prompt phrasing and example selection
+3. improvements often reflect better utilization of memorized patterns rather than true reasoning and understanding. Sort of like the difference between wisdom and experience versus memorizing something in a book from school.
 
 ---
 
@@ -99,7 +113,25 @@ Define generalization in the context of large language models. Explain how distr
 
 **Answer:**
 
-Generalization in large language models refers to the ability to perform accurately on inputs, tasks, or distributions not explicitly encountered during training, extending learned patterns to novel contexts while maintaining coherent and correct outputs—a critical capability since deployment scenarios inevitably differ from training conditions. Models trained on broad internet-scale corpora develop robust representations that often generalize remarkably well to diverse tasks through few-shot or zero-shot learning, yet this distributional training creates inherent limitations: models are fundamentally statistical pattern matchers optimized for data resembling their training distribution, lacking true understanding of causal relationships, formal logic, or consistent world models. Consequently, models exhibit brittleness to out-of-distribution inputs, failing on adversarial examples, unusual phrasings, or domain-specific terminology absent from training data, and show surprising sensitivity to superficial prompt variations—synonymous rephrasings, formatting changes, or example ordering can yield dramatically different outputs because models latch onto spurious correlations and surface-level cues rather than underlying semantics. This fragility reflects that pretraining implicitly encodes distributional biases, tokenization artifacts, and dataset-specific patterns, while the model's learned representations, though powerful for interpolation within the training manifold, provide weak guarantees for extrapolation, revealing the need for more robust learning objectives, systematic evaluation of out-of-distribution behavior, and techniques like adversarial training or compositionality-focused architectures.
+Generalization in large language models is:
+
+1. the ability of performing accurately on inputs, tasks, or distributions not encountered during training
+2. extending learned patterns to novel contexts while maintaining coherent and correct outputs
+
+Models trained on the internet and other large scale data develop robust representations that generalize very well to many tasks.
+
+There are limitations in this type of brute force learning:
+
+1. models are fundamentally statistical pattern matchers optimized for data resembling their training distribution
+2. there is a lack of true understanding of cause and effect, formal logic, or consistent world models.
+
+These weaknesses cause models to:
+
+1. mess up on unexpected inputs
+2. fail on adversarial examples
+3. odd phrasings
+4. lack of domain-specific lingo that isn't in the training data
+5. sensitivity to superficial prompt variations.
 
 ---
 
@@ -109,6 +141,18 @@ Explain why perplexity is insufficient as a standalone measure of reasoning abil
 
 **Answer:**
 
-Perplexity, which measures how well a language model predicts held-out text by quantifying the exponentiated average negative log-likelihood per token, is insufficient for evaluating reasoning ability because it only assesses statistical fit to text distributions without measuring correctness, logical consistency, or problem-solving capability—a model can achieve low perplexity while generating fluent but factually incorrect or logically invalid outputs. Reasoning tasks require multi-step inference, maintaining consistency across reasoning chains, applying abstract rules to novel situations, and arriving at verifiably correct conclusions, none of which are captured by token-level prediction accuracy; for instance, a model might assign high probability to a plausible-sounding but mathematically wrong solution, or produce contradictory statements that each have locally high likelihood. Consequently, evaluating reasoning demands task-specific metrics: exact match accuracy for question answering, execution correctness for code generation, logical validity for formal reasoning, consistency checks across paraphrased questions, and human evaluation of explanation quality, ideally tested on dedicated benchmarks like GSM8K for mathematical reasoning, BIG-Bench for diverse cognitive tasks, or adversarial datasets designed to expose systematic failures. While perplexity correlates with general language modeling quality and can indicate training progress, it fundamentally measures compression rather than comprehension, making it an inadequate proxy for the compositional generalization, causal reasoning, and systematic problem-solving that characterize genuine reasoning ability.
+Perplexity measures how well a language model predicts held-out text by quantifying the exponentiated average negative log-likelihood per token. Perplexity is insufficient for evaluating reasoning ability because:
+
+1. it only assesses statistical fit to text distributions without measuring correctness, logical consistency, or problem-solving capability. A model can achieve low perplexity while generating fluent but false and illogical output.
+2. Reasoning tasks require multi-step inference, maintaining consistency across reasoning chains, applying abstract rules to novel situations, and arriving at verifiably correct conclusions, none of which are captured by token-level prediction accuracy.
+
+Therefore, evaluating reasoning demands task-specific metrics:
+
+1. exact match accuracy for question answering, execution correctness for code generation
+2. logical validity for formal reasoning
+3. consistency checks across paraphrased questions
+4. human evaluation of explanation quality.
+
+Although Perplexity correlates with general LM quality, it fundamentally measures amount of data memorized rather than comprehension.
 
 ---
