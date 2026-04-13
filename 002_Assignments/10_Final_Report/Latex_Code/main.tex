@@ -245,10 +245,40 @@ He et al.~\cite{10771398} introduced LLMeLog. This paper introduced a system int
 
 \section{Methodology}
 
-In order to demonstrate how LLMs can be used to identify problems in system and network logs, a web application will be developed using the MERN stack. The application will then utilize some LLM log frameworks that were developed for LLM log analysis to scan a repository of logs and identify anomalies. An attempt will be made to balance performance with cost efficiency. The performance of the application will be evaluated using standard evaluation metrics for anomaly detection.
+In order to demonstrate how LLMs can be used to identify problems in system and network logs, a web application will be developed using the MERN stack. The application will then utilize some LLM log frameworks that were developed for LLM log analysis to scan a repository of logs and identify anomalies. An attempt will be made to balance performance with cost efficiency. The performance of the application will be evaluated using standard evaluation metrics for anomaly detection which is to identify errors and odd behaviors like excessive logins and failed login attempts.
 
 
-\subsection{Techniques}
+\subsection{Overview of Web Application}
+
+Before going into the logging techniques, a discussion will be made about the type of example application that will be built to generate the logs. This is important because the architecture of the application will determine the approach used to create the LLM log-analysis system.
+
+
+The application that will be used is a web based service built using ther MERN stack. The MERN stack for web development is a popular choice for building web based applications. MERN stands for MongoDB, Express, React and Node. These are various frameworks that handle different parts of the pipeline. Before going into detail about What each of these frameworks do, you need to understand the overall architecture of a web based application. A web based application consists of a front end User Interface. This front end is where a user will interact directly with the application. 
+
+It consists of a front-end user interface that the users will directly interact with through a web browser. In this front end section of the application, the user will essentially  be able to Create, Read, Update and Delete data. The front end of the software can be compared to the front of a grocery store where customers can look at products,  add them to their carts, ask questions to associates and purchase products.
+
+Beneath the front end is the middle layer of the application. This middle layer is the connection between the front end and the back end (Server). In this middle layer, API requests that perform translate the user's interactions into API requests that are sent to the backend server. It is like a middle translation layer that translate the front end user interactions into commands that the backend code and architecture can understand. Using the gorcery store analogy, the middle layer is like the associates that take customers requests for products, complaints and questions and translate them into requests for managers or the warehouse. These middle level associates understand a little of the both customer facing roles and the warehouse roles and are able to translate between the two.
+
+Beneath the middle layer of the application is the backend portion of the code. The backend portion of the code using the analogy of the grocery store is like the warehouse where products are stored and can be retrieved and sent to the front of the store. In terms of software, this is where user data is stored and can be retrieved. It's where things like website articles, banking information, or whatever is stored inside a database. The backend code is also where the API requests from the middle layer are processed and executed.
+
+So with this 3 part architecture of the web application in mind, we can understand how the different parts of the MERN stack fit into this architecture.
+
+\subsection{Overview of the MERN Stack}
+
+MERN stands for MongoDB, Express, React and Node. These are various frameworks that handle different parts of the pipeline.
+
+First let us discuss the front end framework which is React. React is a javascript library used for building the User Interface of web applications. It is used in applications like Facebook, Instagram and even Amazon. The main takeway about why React is used to build front end applications is because it is designed to build very scalable web applications. React is built in such a way that 1 web page for a user can be automatically generated, or 1 billion web pages for 1 billion users can be automatically generated without having hand code each individual web page. The react code is used to produce the front end user interface that users will interact with.
+
+The next technology out of the MERN stack to discuss is Express. Express is a web application framework that acts as the middle layer of the application. It allows the front end react code to communicate with the back end server code that stores  and handles the database as well as other functions that the end user won't necessarily see. Express is used to create something called API endpoints that can speak to the database. API endpoints are like prebuilt messages that allow a specific set of actions to interact with the database. They translate the user's interactions into code that manipulates the database.
+
+The next technology to discuss is MongoDB. MongoDB is a NoSQL database that is used to store data for the application. It is a document-oriented database that stores data in JSON-like format. It is used to store user data, website articles, and other information that the application needs to function. MongoDB can store music, videos, images and other types of data. It is used to store the data that the application needs to function.
+
+The final technology in the MERN stack is Node. Node is a javascript runtime that allows developers to write front end code and back end code in the same Javascript programming language. Without it, developers would have to write front end code in one programming language, and the back end code in another programming language. This streamlines the process of development
+
+In summary, the MERN stack is a set of technologies that are used to build functional web applications that deal with creating, reading, updating and deleting data. But what we now have to consider is the process of logging and log analysis when using these web applications.
+
+\subsection{Logging and LLM Log Analysis}
+
 
 The technique for working with Logging involves 4 steps. 
 
