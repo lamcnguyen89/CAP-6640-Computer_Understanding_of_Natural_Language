@@ -277,18 +277,36 @@ The final technology in the MERN stack is Node. Node is a javascript runtime tha
 
 In summary, the MERN stack is a set of technologies that are used to build functional web applications that deal with creating, reading, updating and deleting data. But what we now have to consider is the process of logging and log analysis when using these web applications.
 
-\subsection{Logging and LLM Log Analysis}
+\subsection{Web Application Logging Setup}
+
+The next portion of the project to consider is the logging portion of the project. In software development, logging is the process of recording information about the application's behavior and performance. There are many reasons to implement logging in an application. The first reason is for debugging purposes. Developers need to be able to trace errors and issues. 
+
+The second reason is for system monitoring purposes. System administrators and security professionals need to be able to monitor the system for unusual activity or security threats.
+
+The third reason is for performance analysis. Developerrs need to be able to identify bottlenecks in order to optimize the performance of an application. Performance bottlenecks become an issue when an application serves millions of people or when it is run on limited hardware.
+
+The fourth reason is for auditing and compliance purposes. Sensitive software such as medical software, financial software and government software need to be able to keep track of user activity for auditing and compliance purposes.
+
+A discussion of the logging framework from the log generation in the application to the log analysis using LLMs will now be made. 
+
+The first step is to actually implement the logging system in the web application. To do this, the Winston Logging Library was used. In the web development world, Winston is one of the most popular due to it's ease of use and versatility. This library was implemented in the backend of the web application to log Express API requests and responses. Winston is able to log API requests and responses in JSON format which is the required format for the LLM framework to parse logs. Winston is also able to save logs to the MongoDB database as well as locally. Also, since it is the most popular web logging framework, it is actively maintained and has a large community which makes it easier to maintain and troubleshoot.
+
+Logs have to be stored in a certain way so that the LLM log analysis framework can parse these logs. First, logs have to be stored in JSON format. Second logs need to have a correlationID linked to a specific user or user session. This will allow the model to trace the user's journey through the application. Finally, relevant logging info such as a timestamp, message, and standard log levels such as info, warning and error need to be included in the logs. 
+
+Once the Winston Logging Framework is implemented as a helper function, it has to be called by the Express API endpoints. API endpoints are like predetermined functions that are called when the user interacts with the front end code in order to deal with data stored in the database.
+
+Once this basic logging setup is in place, the application can start generating logs for various events and actions. These logs can then be analyzed using the LLM framework to gain insights into user behavior, system performance, and potential issues.
+
+\subsection{LLM Log Parsing and Preparation}
+
+The next step is to prepare the logs for analysis by the LLM framework. It is not enough to just send raw logs to the LLM framework. The logs need to be preprocessed and formatted in a way that the LLM can understand. This involves cleaning the logs, extracting relevant information, and structuring the data in a way that is suitable for analysis.
+
+In order to do this, log preparation is broken down into 4 steps. The first step is retrieving logs and processing them. This is an automated service that periodically fetches the generated logs from the database. Once logs have been retrieved from the database for processing in the LLM, it is marked as processed so that it won't be retrieved again which can reduce the accuracy of results. Also logs are retrieved from the database in batches between 100 to 1000. This will prevent the LLM from being overwhelmed. The larger the batch of logs, the more expensive it is to process, but the LLM is able to analyze over a wider context, so batch size has to balance these two factors.
+
+The next step was to implement a strategy to chunk the logs into manageable amounts. It is not cost effective or technically feasible to send a large amount of logs to the LLM. Logs are too granular and there are token limits when using LLMs. In this application, logs are chunked according to the correlationID that is added to the logs based on a particular user session.
 
 
-The technique for working with Logging involves 4 steps. 
 
-The first step is to collect and possibly parse the logs. The way the application is designed, all the logs will be generated and downloaded into a single location. The logs will then be parsed and preprocessed to ensure that they are in a format that can be easily analyzed by the LLM.
-
-The second step is to perform Vector Search and Contextual Retrieval. This step provides a baseline of what normal operations shown in the logs will look like. Retrieval augmented generation (RAG) is a technique that can be used to improve the performance of LLMs by providing them with relevant context from the logs. This can be done using vector search techniques to retrieve relevant log entries based on their semantic similarity to the input query. RAG will be used to feed the LLM.The LLM that will be used is Claude.
-
-The third step is to perform Anomaly Detection. This step involves using the LLM to analyze the logs and identify any anomalies or patterns that may indicate a problem. The LLM can be trained to recognize normal patterns in the logs and flag any deviations from those patterns as potential anomalies.
-
-The fourth step is to analyze the root cause of all the errors from the series of logs and explain in human readable language what the problem is and how to fix it. 
 
 \subsection{Evaluation Metrics}
 
