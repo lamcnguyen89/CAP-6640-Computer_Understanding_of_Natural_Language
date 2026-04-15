@@ -385,7 +385,19 @@ The next steps will be to continue fine-tuning the integration of the LangChain 
 
 \section{Discussion and Challenges}
 
-\section{Evaluation and Results}
+In this section a discussion will be made about the limitations, challenges, trade-offs, and possible improvements. 
+
+AI Log Analysis is possible and can be very useful for system administrators and security professionals. However, there are several challenges and limitations that need to be considered when implementing an LLM-based log analysis system.
+
+In the building of this application, the first limitation that was encountered was the cost of using LLMs for log analysis. Each API call incurs a cost, and as the rate of logging increases, for example in massive applications such as Banking Apps, or the large social media websites, the cost of using LLMs for log analysis can become prohibitive. Maybe the ongoing cost of using LLMs for log analysis can eventually be offset by a company if they build their own hardware and infrastructure to run their own LLMs. This cost-to-benefit analysis has to be done between using an API for LLM log analysis,building an in-house LLM log analysis system, or just hiring an experienced security professional and building log/security analysis tools that don't require LLMs.
+
+For smaller applications, the ongoing and added cost of accessing an API like ChatGPT for log analysis might not be worth the cost in tokens, the cost in hardware and/or the extra time and resources needed to build the LLM analysis system. Also, the added code complexity of building out this system might in itself introduce more bugs and issues that can lead to more problems than it solves. So for smaller applications, it might be more cost effective to just use traditional log analysis methods and tools without LLMs.
+
+For applications that need to be disconnected from the internet, connecting to an API is not feasible, and an in-house solution would be required. For small and efficient applications run on edge devices, having an entire LLM system versus some light weight log visualization tool might not be worth it. 
+
+However, for larger applications that generate a massive amount of logs, and for compnaies that are willing to build inhouse hardware and systems, the benefits can be worth it. Logs are not especially complex to analyze for a human, but the sheer volume of logs can make it impossible for a human to analyze them. LLMs can be used to analyze these logs and identify patterns and anomalies that might be missed by traditional log analysis methods. LLMs can use relatively simple methods such as vector distance analysis, time-series analysis and correlation ID tracking to identify anomalies in the logs. And if the logs are structured consistently, and correctly with the right information that is standardized and easily parsed, then the LLM is not being asked to do anything too complex; it is more of an issue with the sheer volume of logs.
+
+\section{Concluding Remarks}
 
 
 %%
