@@ -305,6 +305,31 @@ In order to do this, log preparation is broken down into 4 steps. The first step
 
 The next step was to implement a strategy to chunk the logs into manageable amounts. It is not cost effective or technically feasible to send a large amount of logs to the LLM. Logs are too granular and there are token limits when using LLMs. In this application, logs are chunked according to the correlationID that is added to the logs based on a particular user session.
 
+Once logs are retrieved and chunked, they have to be embedded. Embedding is the process of converting the logs into a format that can be understood by the LLM. This involves converting the logs into vectors that capture the semantic meaning of the logs. This is done using a pre-trained embedding model that is able to capture the semantic meaning of the logs. The LLM model embedding model that will be used is the OpenAI model specifically designed for embedding named ``text-embedding-3-small``. This model is accessed via the OpenAI API.
+
+Once the logs have been embedded, they are stored in a vector database. The vector database that is used in this application is named Qudrant. This vector database is used to store the embedded logs in a way that allows for efficient retrieval and analysis by the LLM framework. Qudrant was chosen mainly because it was free and allows local storage of embedded logs. The more premium cloud based vector databases can be very expensive and for the purposes of this project, a free vector database is sufficient.
+
+So why is the Qudrant Database necessary? Why are services like MongoDB which are database services not sufficient for storing log embeddings? The reason for this is that the structure of Qudrant and other Vector Storage Databases are optimized for storing, searching, retrieving and analyzing high-dimensional vector data. Qudrant is able to store single embeddings with metadata that can be searched. It can also batch store multiple embeddings for greater efficiency. Unlike traditional databases, Qudrant can do vector similarity search, basic database filtering by fields such as correlationalId, logLevel and timestamp. It can be set up to collect statistics, do error handling and logging within the database itself and of course do basic CRUD operations. Besides vector functions, Qudrant also has the ability to do natural language searches that can be translated to vector searches. This is useful for the LLM framework to be able to search for specific logs based on natural language queries.
+
+So now the logs have been generated, retrieved, chunked, converted to vectors and stored in a database so that the AI model can analyze the logs and identify anomalies. The next step is to implement the LLM framework to analyze the logs and identify anomalies.
+
+\subsection{LLM Log Analysis}
+
+Now that the logs are generated in the application, converted to embeddings and stored in a vector database, they are ready to be analyzed by the LLM framework. The LLM model that will be used for log analysis are the ChatGPT-4 model from OpenAI. Once the AI Agent is implemented, analysis and insights can be generated from the logs. The LLM framework will be able to identify anomalies in the logs such as excessive logins, failed login attempts, and other unusual activity. The LLM framework will also be able to provide insights into user behavior and system performance based on the logs.
+
+For the purposes of this web application, the first step in integrating the AI Agent is to first create the AI Agent service. This service is similar to an API service that can be called by the backend code to analyze logs and return insights. The services are: Vector Similarity Search, Anomaly Detection, Error Pattern Analysis and Conversational Log Query. 
+
+Now we get to the key workflow for the LLM Log Analysis. Log Analysis uses the RAG (Retrieval-Augmented Generation) Pattern. RAG is the process of optimizing the output of a large language model, so it references an external knowledge base outside its training data, before generating a response. RAG basically extends the capabilities of an LLM by allowing it to adapt and incorporate new information that it wasn't trained on. However a possible downside is that if the external source is not reliable, it can lead to inaccurate or misleading responses from the LLM. So the quality of the external knowledge base is crucial for the success of RAG.
+
+The workflow for intelligent log analysis is as follows:
+
+
+User Query -> Embed Query -> Search Qudrant -> Retrieve Top K Logs -> Send Logs to LLM -> LLM Analyzes Logs -> LLM Generates Response -> Return Response to User
+
+
+
+
+
 
 
 
