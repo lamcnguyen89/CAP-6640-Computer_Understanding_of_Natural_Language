@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1776285872.45525 "main.aux" "main.bbl" "main" 1776286041.51863 0
+["bibtex main"] 1776285872.45525 "main.aux" "main.bbl" "main" 1776298401.88524 0
   "./references.bib" 1776095726.2406 5822 5084339d9a5d350726d975bb5a6f249a ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/acmart/ACM-Reference-Format.bst" 1735764768 90749 48abc1cbed6fafc6fc31528e3aa606ca ""
-  "main.aux" 1776286041.1637 3753 6ad58c0fe2c4ab5bf051ee941012f83b "pdflatex"
+  "main.aux" 1776298401.56493 3753 6ad58c0fe2c4ab5bf051ee941012f83b "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1776286039.62748 "/Users/lamcnguyen/SoftwareDev/CAP-6640-Computer_Understanding_of_Natural_Language/002_Assignments/10_Final_Report/Latex_Code/main.tex" "main.pdf" "main" 1776286041.51883 0
-  "/Users/lamcnguyen/SoftwareDev/CAP-6640-Computer_Understanding_of_Natural_Language/002_Assignments/10_Final_Report/Latex_Code/main.tex" 1776286039.41712 36442 d797a6be45368ead407429a45848cbf1 ""
+["pdflatex"] 1776298400.05652 "/Users/lamcnguyen/SoftwareDev/CAP-6640-Computer_Understanding_of_Natural_Language/002_Assignments/10_Final_Report/Latex_Code/main.tex" "main.pdf" "main" 1776298401.88538 0
+  "/Users/lamcnguyen/SoftwareDev/CAP-6640-Computer_Understanding_of_Natural_Language/002_Assignments/10_Final_Report/Latex_Code/main.tex" 1776298399.86031 38321 1a72354d247fa9b856da20c9aba00f2e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_25tcsq.enc" 1490131464 2921 8ca0eb0831f9bc5da080d3697cfe67bf ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc" 1490131464 2934 a4a9158faed2e9e89c771b4e3b7fc12f ""
@@ -183,10 +183,10 @@
   "images/Application_Logs.png" 1776095726.17289 318689 bfb0f152a174f37e4b556ee20c4ae2f1 ""
   "images/Application_UI_Screenshot.png" 1776095726.17367 113321 892e891064ac7f969a449747f0893279 ""
   "images/Backend_Logs.png" 1776095726.17559 397017 344aa34264803b7661df46477ff7b7f2 ""
-  "main.aux" 1776286041.1637 3753 6ad58c0fe2c4ab5bf051ee941012f83b "pdflatex"
+  "main.aux" 1776298401.56493 3753 6ad58c0fe2c4ab5bf051ee941012f83b "pdflatex"
   "main.bbl" 1776285872.55891 4611 08a10996b303a16302850560b8ce5460 "bibtex main"
-  "main.out" 1776286041.16462 2970 fe727191c6a2fcfb6007a381911fb1c9 "pdflatex"
-  "main.tex" 1776286039.41712 36442 d797a6be45368ead407429a45848cbf1 ""
+  "main.out" 1776298401.56576 2970 fe727191c6a2fcfb6007a381911fb1c9 "pdflatex"
+  "main.tex" 1776298399.86031 38321 1a72354d247fa9b856da20c9aba00f2e ""
   (generated)
   "main.aux"
   "main.log"

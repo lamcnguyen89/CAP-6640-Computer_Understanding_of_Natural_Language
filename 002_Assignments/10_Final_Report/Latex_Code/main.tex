@@ -399,6 +399,12 @@ However, for larger applications that generate a massive amount of logs, and for
 
 \section{Concluding Remarks}
 
+Analyzing system and network logs is a critical task for system admins and security professionals. The use of LLMs for log analysis has the potential to improve the efficiency and effectiveness of this task, but there are several challenges and limitations that need to be considered when implementing an LLM-based log analysis system. The cost of using LLMs for log analysis can be prohibitive, especially for smaller applications, and the added code complexity can introduce more bugs and issues. However, for larger applications that generate a massive amount of logs, the benefits of using LLMs for log analysis can outweigh the costs.
+
+We tested the feasibility of using an LLM for log analysis by building a web application that generated logs and then implementing an LLM-based log analysis system. The Web application was built on the MERN stack. Logs were generated using the popular Winston logging library and logs were stored in a MongoDB database. A system was then implemented to retrieve the logs, and turn them into embeddings using the OpenAI text-embedding-3-small model. The embeddings were then stored in a vector database called Qudrant. In order to analyze these stored logs, the RAG (Retrieval-
+Augmented Generation) pattern was implemented. The ChatGPT-4 model was used to analyze logs and was connected through via API calles. With guidance through prompting, log analysis was able to be done.
+
+The system was able to catch anomalies such as errors and excessive logins. However, due to limits on time and the cost of using the API, the project was not as refined as it could be. The Chat User interface for asking questions about the logs and getting insights was not fully implemented and there were still issues with implementing the system to run smoothly. However, the project was able to demonstrate the feasibility of using LLMs for log analysis.
 
 %%
 %% The acknowledgments section is defined using the "acks" environment
