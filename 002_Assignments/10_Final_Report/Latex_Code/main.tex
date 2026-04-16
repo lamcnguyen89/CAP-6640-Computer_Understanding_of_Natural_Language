@@ -263,6 +263,7 @@ Beneath the middle layer of the application is the backend portion of the code. 
 
 So with this 3 part architecture of the web application in mind, we can understand how the different parts of the MERN stack fit into this architecture.
 
+
 \subsection{Overview of the MERN Stack}
 
 MERN stands for MongoDB, Express, React and Node. These are various frameworks that handle different parts of the pipeline.
@@ -338,7 +339,16 @@ Anomaly detection is done using a few basic techniquess. In order to detect stat
 
 The final phase of the RAG implementation is the conversational interface for interacting with the LLM as it analyzes the logs. For a web application that faces the public, this chat feature for debugging would be hidden behind an administrator dashboard or something of the sort. This conversational interface allows users to ask questions about the logs in natural language and receive insights and analysis from the LLM model. This is a key feature for making the log analysis accessible and user-friendly for system administrators and security professionals who may not have a technical background in log analysis.
 
+\subsection{Diagram of Pipeline}
 
+The following image shows the pipeline for the entire web application and log analysis system.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{Application_Pipeline.png}
+  \caption{Pipeline Diagram for Web Application and LLM Log Analysis System}
+  \label{fig:pipeline_diagram}
+\end{figure}
 
 \subsection{Evaluation Metrics}
 
@@ -351,7 +361,7 @@ However, scoring with precision, recall and F1 scores might not be so straight f
 
 \section{Evaluation and Results}
 
-So far the application has been built with Backend Logging using the Javascript logging Library Winston which so far is able to log backend API requests and responses. LangChain framework has been implemented to some extent and is able to scan logs. However more fine-tuning needs to be done as it is not consistent and there are still bugs and issues with thee Claude API. 
+The application has been built with Backend Logging using the Javascript logging Library Winston which so far is able to log backend API requests and responses. 
 
 \begin{figure}[h]
   \centering
@@ -369,18 +379,12 @@ You can see in Figure~\ref{fig:app_ui} the user interface of the application. Th
   \label{fig:backend_logs}
 \end{figure}
 
-In Figure~\ref{fig:backend_logs} you can see that the logs are generated and saved in a single location in a database. The logs are generated using the Winston logging library and are in JSON format. The logs include information about the API requests and responses, as well as any errors that may occur. They are also stored in a separate CSV file that is used for the LangChain framework to scan and analyze the logs. This might not be the most efficient, but for the purposes of this project where we are focused more on implementing LLM Log Analysis, this is sufficient.
+In Figure~\ref{fig:backend_logs} you can see that the logs are generated and saved in a single location in a database. The logs are generated using the Winston logging library and are in JSON format. The logs include information about the API requests and responses, as well as any errors that may occur. They are also stored in a separate CSV file locally for backup and redundancy purposes.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\linewidth]{Application_Logs.png}
-  \caption{Real-Time Logs in Terminal}
-  \label{fig:app_logs}
-\end{figure}
+Due to time restraints, I was not able to build a user interface to interact with the LLM model and ask questions about the logs. However, I was able to implement the backend code to retrieve logs, convert them to embeddings and store them in a vector database. I was also able to implement the backend code to analyze the logs using the RAG pattern and the ChatGPT-4 model. The system was able to catch anomalies such as errors and excessive logins. However, due to limits on time and the cost of using the API, the project was not as refined as it could be. The Chat User interface for asking questions about the logs and getting insights was not fully implemented and there were still issues with implementing the system to run smoothly. However, the project was able to demonstrate the feasibility of using LLMs for log analysis.
 
-In Figure~\ref{fig:app_logs} you can see the real-time logs that are generated in the terminal when the application is running. These logs provide information about the API requests and responses, as well as any errors that may occur. They are also used for debugging purposes during development.
 
-The next steps will be to continue fine-tuning the integration of the LangChain framework and the Claude API to improve function, consistency and reliability. Once the application is able to consistently scan logs and identify anomalies, the next step will be to evaluate its performance using the evaluation metrics mentioned above.
+
 
 
 \section{Discussion and Challenges}
