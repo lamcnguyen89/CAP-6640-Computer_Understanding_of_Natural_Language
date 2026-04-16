@@ -111,6 +111,7 @@
 %% end of the preamble, start of the body of the document source.
 
 %% % Location of your graphics files for figures, here a sub-folder to the main project folder
+\usepackage{float}
 \graphicspath{{./images/}} 
 
 
@@ -343,7 +344,7 @@ The final phase of the RAG implementation is the conversational interface for in
 
 The following image shows the pipeline for the entire web application and log analysis system.
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{Application_Pipeline.png}
   \caption{Pipeline Diagram for Web Application and LLM Log Analysis System}
@@ -363,7 +364,7 @@ However, scoring with precision, recall and F1 scores might not be so straight f
 
 The application has been built with Backend Logging using the Javascript logging Library Winston which so far is able to log backend API requests and responses. 
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=\linewidth]{Application_UI_Screenshot.png}
   \caption{Application UI}
@@ -381,10 +382,25 @@ You can see in Figure~\ref{fig:app_ui} the user interface of the application. Th
 
 In Figure~\ref{fig:backend_logs} you can see that the logs are generated and saved in a single location in a database. The logs are generated using the Winston logging library and are in JSON format. The logs include information about the API requests and responses, as well as any errors that may occur. They are also stored in a separate CSV file locally for backup and redundancy purposes.
 
-Due to time restraints, I was not able to build a user interface to interact with the LLM model and ask questions about the logs. However, I was able to implement the backend code to retrieve logs, convert them to embeddings and store them in a vector database. I was also able to implement the backend code to analyze the logs using the RAG pattern and the ChatGPT-4 model. The system was able to catch anomalies such as errors and excessive logins. However, due to limits on time and the cost of using the API, the project was not as refined as it could be. The Chat User interface for asking questions about the logs and getting insights was not fully implemented and there were still issues with implementing the system to run smoothly. However, the project was able to demonstrate the feasibility of using LLMs for log analysis.
+Due to time restraints, I was not able to build a user interface to interact with the LLM model and ask questions about the logs. However I was able to interact with the LLM through the terminal. A few simple tests were run. THe first test was to purposefully create errors within an hour time span and see if the LLM was able to detect each error. The next test was to do an excessive number of logins  per user session (correlationID). This task of excessive logins was performed five times. The last task was to do an excessive number of logins with false passwords and do this five times. Excessive number was defined as five per minute for a particular user session. The scores are given below:
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Test_Trials.png}
+  \caption{Test Trials}
+  \label{fig:test_trials}
+\end{figure}
 
+You can see in Figure~\ref{fig:test_trials} shows the results of the test trials. It was able to to detect everything but seemed a little too sensitive to excessive logins and the number of false passwords. 
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{Evaluation_Scores.png}
+  \caption{Evaluation Scores}
+  \label{fig:evaluation_scores}
+\end{figure}
+
+In Figure ~\ref{fig:evaluation_scores}, the evaluation scores are given.
 
 
 \section{Discussion and Challenges}
@@ -400,6 +416,12 @@ For smaller applications, the ongoing and added cost of accessing an API like Ch
 For applications that need to be disconnected from the internet, connecting to an API is not feasible, and an in-house solution would be required. For small and efficient applications run on edge devices, having an entire LLM system versus some light weight log visualization tool might not be worth it. 
 
 However, for larger applications that generate a massive amount of logs, and for compnaies that are willing to build inhouse hardware and systems, the benefits can be worth it. Logs are not especially complex to analyze for a human, but the sheer volume of logs can make it impossible for a human to analyze them. LLMs can be used to analyze these logs and identify patterns and anomalies that might be missed by traditional log analysis methods. LLMs can use relatively simple methods such as vector distance analysis, time-series analysis and correlation ID tracking to identify anomalies in the logs. And if the logs are structured consistently, and correctly with the right information that is standardized and easily parsed, then the LLM is not being asked to do anything too complex; it is more of an issue with the sheer volume of logs.
+
+For this particular web application, there were definitely improvements that could be made. The AI tool made some false positives with the excessive logins and false password attempts. The AI agent might need to be tuned better or the structure of the logs could be fine-tuned. Or it just might be the test itself that was not designed well.
+
+Also for this application, I did not build a UI for interacting with the Chat Agent. Things had to be done in the terminal inside a docker container. This was not ideal.
+
+Other issues had to do with the tests and evaluation metrics themselves. The evaluation was not thorough enough and limited by time and my own abilities. For something as critical as security, especially when an AI agent which is imperfect, a security professional would be better for evaluating the effectiveness of the model and tuning it. Things like anomalies can be detected early and are subtle. It takes experience that an experienced human should look over. 
 
 \section{Concluding Remarks}
 
