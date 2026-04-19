@@ -1,3 +1,5 @@
+## Multiple Choice Questions
+
 1. What distinguishes Natural Language Generation (NG) from classification tasks?
    A. Selecting predefined outputs
    B. Constructing novel sequences that preserve meaning and fluency
@@ -590,3 +592,143 @@
     A. Larger models
     B . Faster training
     D. Model cards and documentation
+
+## True/False Questions
+
+1. Natural Language Generation (NG) systems synthesize new text rather than
+   selecting predefined outputs.
+2. Abstractive summarization generates new paraphrased summaries using neural such as BART, PEGASUS, and T5.
+3. Extractive summarization selects key sentences or phrases directly from the source text.
+4. Bottom-up summarization first selects salient content and then rewrites it into a coherent summary.
+5. Reinforcement Learning (RL) for summarization optimizes models by maximizing long-term rewards rather than token-level likelihood.
+6. Maximum Likelihood Estimation (MLE) training aligns directly with evaluation metrics such as ROUGE.
+7. Exposure bias occurs because during training the model observes gold-standard summaries but at inference time generates tokens autoregressively.
+8. Self-Critical Sequence Training (SCST) uses the model's greedy-decoded summary as a baseline to reduce gradient variance.
+9. Actor-Critic methods include an actor that generates summaries and a critic that estimates expected reward.
+10. Higher ROUGE scores always correspond to improved human readability.
+11. Maximum Mutual Information (MMI) modifies the objective by incorporating P(S | T) and penalizing high-frequency responses.
+12. Conversational Question Answering (CQA) treats each question independently
+    without maintaining conversational context.
+13. CA requires understanding previous questions, prior answers, and evolving
+    discourse state.
+14. Retrieval-based systems dynamically generate responses using language models
+    such as GPT or BART.
+15. Hybrid CA approaches combine retrieval and generation, as in Retrieval-
+    Augmented Generation (RAG).
+16. Memory networks are used to store and retrieve conversation history in CQA
+    systems.
+17. Conversational Q A datasets such as CoQ and QuAC involve multi-turn question
+    answering over context.
+18. Storytelling in NLP requires modeling plot progression, character development,
+    and stylistic consistency.
+19. Prompt design has n o significant effect on storytelling quality.
+20. Multi-turn interactive prompting allows users to introduce plot twists that the
+    model continues dynamically.
+21. Skip-Thought vectors learn sentence representations by predicting neighboring
+    sentences in a corpus.
+22. Event-based story generation represents narratives as sequences of structured
+    events rather than raw token
+23. Language modeling reduces sequence probability estimation to autoregressive
+    next-token prediction.
+24. Conditional language modeling generates a target sequence independent of input
+    n-gram models approximate conditional probabilities using a fixed context
+    window.
+25. Transformer-based models rely on recurrence rather than self-attention.
+26. Teacher forcing supplies the ground-truth token during training when predicting
+    the next token.
+27. Exposure bias arises because training and inference use the same distribution.
+28. Decoding is a search problem over an exponentially large hypothesis space.
+29. Greedy decoding guarantees globally optimal sequences.
+30. Beam search retains multiple high-scoring hypotheses during decoding.
+31. Top-k sampling eliminates all stochasticity in decoding.
+32. Perplexity measures token-level prediction accuracy but does not guarantee high-
+    quality generation.
+33. Coreference resolution is the task of clustering mentions that refer to the same
+    real-world entity.
+34. Anaphora includes all forms of coreference without restriction.
+35. Coreference resolution is fundamentally a clustering problem over textual
+    mentions.
+36. MUC evaluates clustering using mention-level overlap.
+37. B^3 computes precision and recall at the mention level.
+38. CEAF aligns predicted and gold clusters using optimal one-to-one matching.
+39. Mention-pair models guarantee global consistency across clusters.
+40. Mention-ranking models select the best antecedent for each mention.
+41. Coreference defines a n equivalence relation that must satisfy reflexivity,
+    symmetry, and transitivity.
+42. Self-attention enables modeling of long-distance dependencies across documents.
+43. Coreference resolution depends only on lexical similarity and not o n world
+    knowledge.
+44. Deep learning enables automatic feature learning from raw data.
+45. Single-task learning promotes knowledge sharing across tasks.
+46. Pre-training learns general-purpose representations o n large datasets.
+47. Multi-task learning integrates multiple objectives into a shared parameter
+    space.
+48. Hard parameter sharing eliminates negative transfer between tasks.
+49. Soft parameter sharing maintains separate models while regularizing their
+    similarity.
+50. Negative transfer occurs when gradients from tasks conflict.
+51. Fine-tuning always preserves previously learned knowledge.
+52. LoRA reduces trainable parameters b y factorizing weight updates into low-rank
+    matrices.
+53. Instruction tuning requires separate output heads for each task.
+54. Multitask kearning cab be formulated as a multi-objective optimization problem
+55. Semantic composition derives sentence meaning from the structured combination of its parts.
+56. Meaning arises solely from individual words without considering structure or
+    context.
+57. Recursion allows infinite embedding of phrases within phrases.
+58. Center embedding is cognitively easy for humans to process.
+59. Parsing ambiguity directly affects semantic interpretation.
+60. Distributional models handle logical operators such a s quantifiers and negation
+    effectively.
+61. neural models explicitly encode hierarchical structure.
+62. Transformers enforce explicit tree structures during semantic composition.
+63. Formal semantics models meaning as function application aligned with syntax.
+64. Hybrid neuro-symbolic models combine structured logic with neural
+    representations.
+65. Compositional generalization requires systematic recombination beyond memorized
+    patterns.
+66. Autoregressive models predict the next token given prior context.
+67. Autoencoding models use masked language modeling with bidirectional context.
+68. Sequence-to-sequence models encode input and decode output sequences.
+69. Retrieval-augmented models rely only on parametric knowledge stored in model
+    weights.
+70. Multimodal models integrate text with image, audio, or video representations.
+71. Instruction-aligned models use supervised fine-tuning and preference
+    optimization.
+72. Causal language modeling uses bidirectional context during training.
+73. Scaling laws show predictable performance improvements with increased model size
+    and data.
+74. Retrieval-augmented generation reduces hallucination by conditioning on external
+    documents.
+75. Self-attention scales linearly with sequence length.
+76. Mixture-of-Experts activates all parameters for every token.
+77. Human intelligence exhibits strong few-shot learning and adaptability to novel
+    tasks.
+78. Machine learning systems by design possess structured reasoning mechanisms.
+79. Few-shot generalization in machines remains an open research challenge.
+80. Language models are robust to distribution shifts and minor input perturbations.
+81. Generated explanations from LLMs always reflect the true internal reasoning
+    process.
+82. Formal reasoning guarantees validity through strict inference rules.
+83. LLMs primarily operate within informal reasoning regimes.
+84. Chain-of-Thought prompting modifies model parameters during inference.
+85. Chain-of-Thought prompting can improve performance on multi-step reasoning
+    tasks.
+86. Perplexity directly measures reasoning ability in language models.
+87. Emergent abilities refer to nonlinear improvements in performance with scale.
+88. Ethical risks in NLP arise from data, model architecture, deployment context,
+    and societal factors.
+89. Algorithmic bias can originate from representation, historical, and measurement
+90. Publicly available data always implies ethical permissibility for model
+    training.
+91. Generative models can be used to produce misinformation and automated
+    propaganda.
+92. NLP systems are inherently transparent and easy to audit.
+93. The CIA triad consists of confidentiality, integrity, and availability.
+94. Bias in NLP systems is limited to dataset imbalance only.
+95. Cognitive biases in human language can be inherited by NLP models.
+96. Bias can arise during data collection, annotation, model training, and
+    deployment.
+97. Fairness definitions such as demographic parity and equalized odds are always
+    compatible.
+98. Bias mitigation is a continuous process across the NLP lifecycle.
