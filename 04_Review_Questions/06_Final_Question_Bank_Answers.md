@@ -1,6 +1,6 @@
 1. What distinguishes Natural Language Generation (NG) from classification tasks?
-   **A. Selecting predefined outputs**
-   B. Constructing novel sequences that preserve meaning and fluency
+   A. Selecting predefined outputs
+   **B. Constructing novel sequences that preserve meaning and fluency**
    C. Assigning labels to tokens
    D. Extracting key phrases
 
@@ -18,7 +18,7 @@
 
 4. Which limitation of MLE training is explicitly mentioned?
    A. High computational efficiency
-   B. Alignment with ROUGE metrics
+   B. Alignment with ROUGE metrics (Is this this answer?)
    **C. Exposure bias and mismatch with evaluation metrics**
    D. Improved long-term coherence
 
