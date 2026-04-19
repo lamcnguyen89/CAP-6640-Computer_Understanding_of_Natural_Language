@@ -16,9 +16,9 @@
    C . Maximizes token-level likelihood
    D. Removes extractive components
 
-4. Which limitation of MLE training is explicitly mentioned?
+4. Which limitation of MLE (Maximum Likelihood Estimation) training is explicitly mentioned?
    A. High computational efficiency
-   B. Alignment with ROUGE metrics (Is this this answer?)
+   B. Alignment with ROUGE metrics
    **C. Exposure bias and mismatch with evaluation metrics**
    D. Improved long-term coherence
 
