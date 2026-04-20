@@ -428,7 +428,7 @@
     C. Vocabulary
     D. Parsing
 
-72. What is RLHF used for?
+72. What is RLHF(Reinforcement Learning from Human Feedback) used for?
     A. Token prediction
     B. Retrieval
     **C. Aligning outputs with human preferences**
@@ -605,7 +605,7 @@
 4. Bottom-up summarization first selects salient content and then rewrites it into a coherent summary. **True**
 5. Reinforcement Learning (RL) for summarization optimizes models by maximizing long-term rewards rather than token-level likelihood. **True**
 6. Maximum Likelihood Estimation (MLE) training aligns directly with evaluation metrics such as ROUGE. **False**
-7. Exposure bias occurs because during training the model observes gold-standard summaries but at inference time generates tokens autoregressively. **True**
+7. Exposure bias occurs because during training the model observes gold-standard summaries at inference time but generates tokens autoregressively. **True**
 8. Self-Critical Sequence Training (SCST) uses the model's greedy-decoded summary as a baseline to reduce gradient variance. **True**
 9. Actor-Critic methods include an actor that generates summaries and a critic that estimates expected reward. **True**
 10. Higher ROUGE scores always correspond to improved human readability. **False**
@@ -663,7 +663,7 @@
     knowledge. **False**
 44. Deep learning enables automatic feature learning from raw data. **True**
 45. Single-task learning promotes knowledge sharing across tasks. **False**
-46. Pre-training learns general-purpose representations o n large datasets. **True**
+46. Pre-training learns general-purpose representations on large datasets. **True**
 47. Multi-task learning integrates multiple objectives into a shared parameter
     space. **True**
 48. Hard parameter sharing eliminates negative transfer between tasks. **False**
