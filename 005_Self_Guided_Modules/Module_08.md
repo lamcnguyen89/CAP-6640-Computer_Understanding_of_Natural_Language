@@ -1,5 +1,7 @@
-Introduction to Module 8
-Module Introduction
+# Introduction to Module 8
+
+## Module Introduction
+
 Main Focus: This module examines ethics, bias, privacy, and dual-use risks in Natural Language Processing systems. It analyzes how algorithmic bias emerges from data collection, annotation practices, embedding representations, and large-scale pretraining, and how these biases propagate into real-world harms in hiring, translation, sentiment analysis, and content moderation. Students will explore social stereotypes encoded in language models, misclassification risks in high-stakes domains, and documented cases of discriminatory or harmful AI behavior. The module emphasizes structural sources of bias, fairness trade-offs, and the societal impact of deploying NLP systems at scale.
 
 Secondary Focus: Beyond identifying harms, the module develops adversarial auditing and mitigation strategies for ethical NLP design. Topics include black-box bias auditing, counterfactual evaluation, fairness-aware modeling, debiasing embeddings, participatory annotation, dataset documentation, and governance challenges for dual-use LLMs. Students critically assess privacy violations, consent failures, pseudoscientific inference (e.g., protected attribute prediction), and policy gaps in AI regulation. The module concludes by framing responsible NLP as a continuous, interdisciplinary process integrating technical rigor, social awareness, and accountability mechanisms.

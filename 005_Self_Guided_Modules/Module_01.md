@@ -1,168 +1,59 @@
-Module 1 Self-Guided Lab: Distributional Semantics and Word Embeddings
-This lab is a self-directed, ungraded activity designed to help you operationalize the core concepts from Lectures 2–4. The goal is to move from theory to practice by exploring how word meaning emerges from data, how embeddings are learned through optimization, and how their quality can be analyzed empirically.
+# Introduction to Module 1
 
-You are encouraged to experiment freely. There is no submission or grading associated with this lab. The value comes from running the code, observing the behavior of representations, and connecting those observations back to the lecture concepts.
+## Module Introduction
 
-Recommended Programming Environment
-The recommended environment for this lab is Python using Google Colab. Colab provides a ready-to-use environment with GPU support (optional), no local installation, and easy access to common NLP libraries.
+Main Focus: This module develops the foundational concepts of distributional semantics and word embeddings, establishing how word meaning can be computationally represented through patterns of language use. It begins with the distributional hypothesis—the principle that words appearing in similar contexts tend to have similar meanings—and examines how this linguistic insight enables the construction of semantic representations from large text corpora. Students will explore the transition from discrete symbolic representations to continuous vector spaces, analyzing why traditional one-hot encodings fail to capture semantic relationships and how distributional methods overcome these limitations through context-based modeling.
 
-To get started:
+Secondary Focus: Building on distributional foundations, the module introduces neural word embedding methods, focusing on Word2Vec (Skip-gram and CBOW), optimization through negative sampling, and the geometric properties of learned embeddings. Students will examine how neural architectures transform co-occurrence patterns into dense vector representations, enabling semantic analogies, similarity computation, and downstream task performance. The module concludes by analyzing embedding evaluation methods (intrinsic and extrinsic), exploring limitations of static embeddings (polysemy, context-independence), and connecting these representations to broader themes in neural language modeling and transfer learning.
 
-Go to Google ColabLinks to an external site.
-Create a new notebook
-Select Python 3 as the runtime
-All code snippets below are compatible with Colab.
+Module Objectives
+By the end of this module, students will be able to:
 
-Core Libraries
-The following libraries will be used throughout the lab:
+Explain the distributional hypothesis and its role in computational semantics.
+Describe co-occurrence matrices and point-wise mutual information (PMI) as distributional representations.
+Analyze the limitations of one-hot encodings and symbolic word representations.
+Explain count-based distributional methods and dimensionality reduction techniques.
+Describe the Skip-gram and Continuous Bag-of-Words (CBOW) architectures.
+Explain how Word2Vec learns embeddings through optimization and negative sampling.
+Compute and interpret word similarity using cosine similarity in embedding spaces.
+Evaluate word embeddings using intrinsic tasks (analogy, similarity) and extrinsic tasks (classification, NER).
+Identify limitations of static word embeddings, including polysemy and context insensitivity.
+Connect distributional semantics to modern contextual representations and transfer learning.
 
-numpy – numerical computation and vector operations
-scikit-learn – similarity computation, dimensionality reduction
-gensim – Word2Vec implementation and pretrained embeddings
-matplotlib – visualization
-Install (or confirm) these libraries in Colab:
+Table of Contents of the Module
+Component
 
-!pip install numpy scikit-learn gensim matplotlib
-Standard Datasets
-You may use any text corpus, but the following are standard, well-supported options:
+Supporting Material
 
-Text8: A cleaned Wikipedia subset (commonly used for Word2Vec)
-Wikipedia dumps: For larger-scale experiments
-NLTK sample corpora: Small and convenient for quick testing
-Example: loading the Text8 dataset using Gensim:
+Assessment
 
-from gensim.models import Word2Vec
-from gensim.models.word2vec import Text8Corpus
+Lecture 2: Introduction to Distributional Semantics
 
-corpus = Text8Corpus('text8')
-(Colab users may need to download the dataset first.)
+Lecture slides Download Lecture slides; in-class discussion
 
-Activity 1: One-Hot Encoding and Its Limitations
-This activity demonstrates why discrete representations fail to capture semantic similarity.
+Homework 1 (covers Lectures 2–4)
 
-Steps:
+Lecture 3: Word Embeddings and Word2Vec
 
-Build a small vocabulary from a corpus
-Represent words using one-hot vectors
-Compute similarity between words
+Lecture slides Download Lecture slides; in-class discussion
 
-import numpy as np
+Homework 1
 
-vocab = ["hotel", "motel", "cat", "quantum"]
-word_to_index = {w:i for i,w in enumerate(vocab)}
+Lecture 4: Embedding Evaluation and Limitations
 
-def one_hot(word):
-vec = np.zeros(len(vocab))
-vec[word_to_index[word]] = 1
-return vec
+Lecture slides Download Lecture slides; in-class discussion
 
-hotel = one_hot("hotel")
-motel = one_hot("motel")
+Homework 1; Module 1 Self-Guided Lab
 
-np.dot(hotel, motel)
-Think about:
+Course Materials
+Reading Review lecture slides and Canvas pages for each topic.
+Video Watch recorded lectures for detailed explanations and worked examples.
 
-Why is the similarity always zero for distinct words?
-What geometric property causes this behavior?
-Activity 2: Distributional Semantics with Context Windows
-This activity operationalizes the idea that meaning comes from context.
+Activities and Assessments
+Practice Activities
+Review lecture materials and work through distributional semantics examples, Word2Vec architecture diagrams, and embedding visualization exercises. Students are encouraged to complete the Module 1 Self-Guided Lab to experiment with one-hot encodings, co-occurrence matrices, Word2Vec training, and embedding evaluation.
 
-Steps:
+Do the self-guided lab.
 
-Define a symmetric context window
-Collect word–context co-occurrence counts
-Inspect which words appear in similar contexts
-
-from collections import defaultdict
-
-corpus = "i like deep learning i like nlp i enjoy flying".split()
-window_size = 2
-cooccurrence = defaultdict(lambda: defaultdict(int))
-
-for i, word in enumerate(corpus):
-for j in range(max(0, i-window_size), min(len(corpus), i+window_size+1)):
-if i != j:
-cooccurrence[word]corpus[j]] += 1
-Think about:
-
-How does window size affect the type of similarity captured?
-Why are these matrices sparse?
-Activity 3: Training Word Embeddings (Word2Vec)
-This activity treats Word2Vec as an optimization problem.
-
-Steps:
-
-Train a Word2Vec model
-Inspect learned embeddings
-Compute similarity between words
-
-from gensim.models import Word2Vec
-
-sentences = [
-["i","like","deep","learning"],
-["i","like","nlp"],
-["i","enjoy","flying"]
-]
-
-model = Word2Vec(
-sentences,
-vector_size=50,
-window=2,
-min_count=1,
-sg=1 # Skip-gram
-)
-
-model.wv.similarity("deep", "nlp")
-Think about:
-
-Why does similarity emerge without explicit synonym rules?
-What role does optimization play?
-Activity 4: Count-Based vs. Predictive Representations
-Compare co-occurrence-based vectors with learned embeddings.
-
-Steps:
-
-Apply dimensionality reduction (e.g., SVD or PCA) to co-occurrence matrices
-Compare neighborhood structure with Word2Vec embeddings
-
-from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
-
-words = ["like", "deep", "nlp", "enjoy"]
-vectors = [model.wv[w] for w in words]
-
-pca = PCA(n_components=2)
-proj = pca.fit_transform(vectors)
-
-plt.scatter(proj[:,0], proj[:,1])
-for i, w in enumerate(words):
-plt.text(proj[i,0], proj[i,1], w)
-plt.show()
-Activity 5: Evaluating Word Embeddings
-Explore both intrinsic and extrinsic evaluation.
-
-Intrinsic:
-
-Word similarity using cosine similarity
-Analogy-style vector arithmetic
-
-model.wv.most_similar(positive=["king","woman"], negative=["man"])
-Extrinsic (optional):
-
-Use embeddings as features in a small classification task
-Observe performance impact
-Word Sense Exploration
-Inspect how static embeddings conflate multiple meanings.
-
-model.wv.most_similar("bank")
-Think about:
-
-Which senses are mixed together?
-Why does this happen in static embeddings?
-Reflection
-As you complete this lab, reflect on the following:
-
-How optimization shapes semantic geometry
-Why embeddings generalize better than symbolic representations
-What limitations remain in static word vectors
-This lab prepares you conceptually and practically for later topics involving contextual and transformer-based representations.
+Graded Assessments
+Complete Homework 1, covering Lectures 2–4.
